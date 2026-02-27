@@ -76,3 +76,38 @@ print(10)
 Olá, Data Science!
 10
 ~~~
+
+### 1.4 Comentários e Documentação
+
+Comentários são anotações inseridas no código que o interpretador Python ignora. Eles são essenciais para documentar a lógica e aumentar a manutenibilidade do projeto.
+
+#### 1.4.1 Comentários de Linha Única
+Utiliza-se o símbolo `#`. Tudo o que estiver à direita dele na mesma linha é ignorado.
+
+~~~python
+# Este é um comentário de linha única
+print(10) # Comentário inserido após uma instrução de código
+~~~
+
+#### Retorno esperado:
+~~~python
+10
+~~~
+
+#### 1.4.2 Comentários de Múltiplas Linhas
+Utilizam-se aspas triplas (`'''` ou `"""`). São úteis para explicações extensas.
+
+~~~python
+'''
+Este é um comentário
+de várias linhas, ignorado
+pelo interpretador.
+'''
+print("Python para Dados")
+~~~
+
+#### Retorno esperado:
+~~~python
+Python para Dados
+~~~
+
