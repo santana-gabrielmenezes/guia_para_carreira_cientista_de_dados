@@ -203,3 +203,71 @@ print(idade, Idade, IDADE, _idade)
 
 > [!TIP]
 > **Dica de Profissional:** Utilize sempre nomes descritivos. Prefira `media_notas_estudante` em vez de apenas `m` ou `n`, para que seu código seja autodocumentado.
+
+### 2.4 Tipos de Variáveis (Classes)
+
+O trabalho com Data Science exige a manipulação de diferentes formatos de dados. No Python, os dados são organizados em classes, sendo quatro delas os pilares fundamentais:
+
+| CLASSE | DESCRIÇÃO | EXEMPLO |
+| :--- | :--- | :--- |
+| **int** | Números inteiros (positivos ou negativos). | `3`, `100`, `-5` |
+| **float** | Números decimais ou fracionários (ponto flutuante). | `3.14`, `100.0`, `-0.5` |
+| **str** | *Strings*: sequências de caracteres (textos) entre aspas. | `'Olá!'`, `"1234"` |
+| **bool** | Valores lógicos: verdadeiro ou falso. | `True`, `False` |
+
+
+
+---
+
+#### 2.4.1 Identificando Tipos com `type()`
+
+Cada variável referencia uma classe específica baseada no dado atribuído. Para verificar essa classificação, utilizamos a função nativa `type()`.
+
+~~~python
+i = 5
+f = 9.8
+s = 'Mirla'
+b = True
+
+print(type(i))
+print(type(f))
+print(type(s))
+print(type(b))
+~~~
+
+#### Retorno esperado:
+~~~python
+<class 'int'>
+<class 'float'>
+<class 'str'>
+<class 'bool'>
+~~~
+
+> [!IMPORTANT]
+> **Observações técnicas:**
+> * **Floats:** A presença do ponto (`.`) é suficiente para classificar o dado como float, mesmo que a parte decimal seja zero (ex: `10.0`).
+> * **Strings:** Números entre aspas (ex: `"1234"`) são tratados como texto e não permitem cálculos matemáticos diretos.
+> * **Booleans:** A primeira letra deve ser sempre maiúscula (`True` ou `False`).
+
+---
+
+#### 2.4.2 Aplicação Prática: Ficha de Aluno
+
+Consolidando os tipos de dados para criar um registro no sistema da instituição de ensino:
+
+~~~python
+# Atribuição de dados de diferentes tipos
+nome_aluno = 'Fabricio Daniel' # str
+idade_aluno = 15               # int
+media_aluno = 8.45             # float
+situacao_aprovado = True       # bool
+
+# Exibição dos dados salvos na memória
+print(nome_aluno, idade_aluno, media_aluno, situacao_aprovado)
+~~~
+
+#### Retorno esperado:
+~~~python
+Fabricio Daniel 15 8.45 True
+~~~
+
