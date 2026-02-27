@@ -72,7 +72,7 @@ print(10)
 ```
 
 #### Retorno esperado:
-```python
+~~~python
 Olá, Data Science!
 10
-```
+~~~
