@@ -271,3 +271,87 @@ print(nome_aluno, idade_aluno, media_aluno, situacao_aprovado)
 Fabricio Daniel 15 8.45 True
 ~~~
 
+### 2.5 Variáveis Numéricas e Operações Aritméticas
+
+As variáveis do tipo `int` e `float` podem ser manipuladas através de operadores aritméticos para realizar cálculos complexos. Para exemplificar, utilizaremos os dados de recursos humanos da nossa instituição de ensino:
+
+| Cargo | Quantidade (`int`) | Salário (`int`/`float`) |
+| :--- | :--- | :--- |
+| Segurança | 5 | 3000 |
+| Docente | 16 | 6000 |
+| Diretoria | 1 | 12500 |
+
+#### 2.5.1 Declaração das Variáveis
+Primeiro, armazenamos os dados brutos em variáveis descritivas:
+
+~~~python
+# Dados de Segurança
+q_seguranca = 5
+s_seguranca = 3000
+
+# Dados de Docentes
+q_docente = 16
+s_docente = 6000
+
+# Dados de Diretoria
+q_diretoria = 1
+s_diretoria = 12500
+~~~
+
+#### Retorno esperado:
+~~~python
+# (Sem saída visual, os valores foram apenas armazenados na memória)
+~~~
+
+---
+
+#### 2.5.2 Operadores Aritméticos na Prática
+
+Podemos resolver problemas de negócio utilizando os operadores padrão do Python:
+
+| Operação | Operador |
+| :--- | :---: |
+| Soma | `+` |
+| Subtração | `-` |
+| Multiplicação | `*` |
+| Divisão | `/` |
+
+
+
+**1. Soma: Total de empregados**
+~~~python
+total_empregados = q_seguranca + q_docente + q_diretoria
+total_empregados
+~~~
+
+#### Retorno esperado:
+~~~python
+22
+~~~
+
+**2. Subtração: Diferença salarial entre cargos**
+~~~python
+diferenca_salario = s_diretoria - s_seguranca
+diferenca_salario
+~~~
+
+#### Retorno esperado:
+~~~python
+9500
+~~~
+
+**3. Multiplicação e Divisão: Média salarial ponderada**
+Para calcular a média ponderada, multiplicamos a quantidade pelo salário de cada categoria e dividimos pelo total. O uso de **parênteses** é obrigatório para definir a ordem de precedência.
+
+~~~python
+media_salarial = (q_seguranca*s_seguranca + q_docente*s_docente + q_diretoria*s_diretoria) / total_empregados
+media_salarial
+~~~
+
+#### Retorno esperado:
+~~~python
+5613.636363636364
+~~~
+
+> [!NOTE]
+> **Precedência Matemática:** Assim como na matemática tradicional, o Python executa primeiro a multiplicação (`*`) e a divisão (`/`) antes da soma (`+`) e subtração (`-`). Use parênteses para garantir que as somas do numerador sejam realizadas antes da divisão final.
