@@ -111,3 +111,95 @@ print("Python para Dados")
 Python para Dados
 ~~~
 
+## 02. Variáveis e Tipos de Dados
+
+Nesta etapa, assumimos o papel de auxiliares de uma equipe de Ciência de Dados em uma instituição de ensino. O objetivo é utilizar Python para resolver problemas cotidianos da escola, começando pela manipulação de informações básicas.
+
+---
+
+### 2.1 O que são Variáveis?
+
+Variáveis funcionam como nomes associados a valores ou informações armazenadas na memória do computador. Em Data Science, elas são essenciais para rotular dados que serão processados por algoritmos.
+
+#### 2.1.1 Atribuição e Atualização
+Para criar uma variável, utiliza-se o operador de atribuição `=`. O valor à direita é vinculado ao nome à esquerda. 
+
+Uma característica fundamental é a **mutabilidade**: o valor de uma variável pode ser alterado ao longo da execução do código.
+
+~~~python
+# Atribuição inicial
+idade = 5
+print(idade)
+
+# Atualizando o valor (o valor antigo é sobrescrito)
+idade = 10
+print(idade)
+~~~
+
+#### Retorno esperado:
+~~~python
+5
+10
+~~~
+
+#### 2.1.2 Exibição de Valores em Notebooks
+Além da função `print()`, os notebooks (como o Google Colab) exibem automaticamente o valor de uma variável se ela for escrita sozinha na **última linha** de uma célula.
+
+~~~python
+idade = 15
+idade
+~~~
+
+#### Retorno esperado:
+~~~python
+15
+~~~
+
+---
+
+### 2.2 Armazenando Textos (Strings)
+
+Variáveis podem armazenar diferentes tipos de dados. Para textos, utilizamos aspas simples (`' '`) ou duplas (`" "`).
+
+~~~python
+nome = 'Gabriel'
+nome
+~~~
+
+#### Retorno esperado:
+~~~python
+'Gabriel'
+~~~
+
+
+
+---
+
+### 2.3 Regras de Nomeação e Boas Práticas
+
+Para garantir que o código seja interpretável e profissional, existem regras rígidas e convenções para nomear variáveis:
+
+#### 🚫 O que NÃO é permitido:
+1.  **Iniciar com números:** Ex: `10_notas`, `2_nomes`.
+2.  **Espaços vazios:** Ex: `nome aluno`. Utilize `nome_aluno` (padrão *Snake Case*).
+3.  **Palavras Reservadas:** Não use nomes de funções nativas como `print` ou `type`.
+
+#### ⚠️ Case Sensitivity (Sensibilidade a maiúsculas)
+O Python diferencia letras maiúsculas de minúsculas. Portanto, as variáveis abaixo são tratadas como entidades distintas na memória:
+
+~~~python
+idade = 1
+Idade = 2
+IDADE = 3
+_idade = 4
+
+print(idade, Idade, IDADE, _idade)
+~~~
+
+#### Retorno esperado:
+~~~python
+1 2 3 4
+~~~
+
+> [!TIP]
+> **Dica de Profissional:** Utilize sempre nomes descritivos. Prefira `media_notas_estudante` em vez de apenas `m` ou `n`, para que seu código seja autodocumentado.
