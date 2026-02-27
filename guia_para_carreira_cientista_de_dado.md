@@ -58,3 +58,14 @@ A execução ocorre em tempo real. Ao rodar uma célula, o Colab aloca uma **Má
 * **Status do Ambiente:** No canto superior direito, você pode monitorar o uso de **RAM** e **Disco**.
 * **Movimentação:** Use as setas (🔼/🔽) no menu da célula para reorganizar a ordem dos blocos.
 
+### 1.3 Saída de Dados: A Função `print()`
+
+A função `print()` é utilizada para exibir informações no console ou na saída de uma célula do notebook. É a ferramenta básica para depuração e visualização de estados do código.
+
+#### Exemplo de Uso
+```python
+# Exibindo uma mensagem de texto (string)
+print("Olá, Data Science!")
+
+# Exibindo um valor numérico
+print(10)
