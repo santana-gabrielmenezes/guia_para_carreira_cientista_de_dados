@@ -69,3 +69,10 @@ print("Olá, Data Science!")
 
 # Exibindo um valor numérico
 print(10)
+```
+
+#### Retorno esperado:
+```python
+Olá, Data Science!
+10
+```
