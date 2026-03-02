@@ -431,3 +431,102 @@ Ano de entrada 2026 - Nota do teste de ingresso 9.0
 
 > [!IMPORTANT]
 > **Boas Práticas:** Ao utilizar `input()`, sempre adicione um espaço após os "dois pontos (:)" na frase de solicitação. Isso evita que o cursor do usuário fique colado ao texto, melhorando a experiência de uso.
+
+### 1.12 Formatação Avançada de Saída
+
+Além das f-strings, o Python oferece métodos alternativos para interpolação de strings e o uso de caracteres especiais para controle de exibição no console. Como você tem interesse em estruturar documentações técnicas em Python, o domínio dessas formatações é essencial para a clareza dos outputs.
+
+#### 1.12.1 Operador de Formatação (%)
+
+Este operador funciona como um marcador (placeholder) que informa onde o valor da variável será exposto na string. Cada tipo de dado exige uma palavra-chave específica:
+
+| Tipo de Variável | Palavra-chave |
+| :--- | :---: |
+| **String** | `%s` |
+| **Inteiro** | `%d` |
+| **Float** | `%f` |
+| **Caractere** | `%c` |
+
+
+
+##### Exemplo de Uso (Múltiplas Variáveis e Precisão)
+~~~python
+nome_aluno = 'Fabricio Daniel'
+idade_aluno = 15
+media_aluno = 8.45
+
+# Usando %.2f para limitar a duas casas decimais
+print('O aluno %s tem %d anos e média %.2f.' % (nome_aluno, idade_aluno, media_aluno))
+~~~
+
+##### Retorno esperado:
+~~~python
+O aluno Fabricio Daniel tem 15 anos e média 8.45.
+~~~
+
+> [!TIP]
+> **Booleano com %:** Embora o `%s` aceite booleanos (convertendo-os internamente via `str()`), recomenda-se a conversão explícita para manter o código legível: `print("Valor: %s" % str(True))`.
+
+---
+
+#### 1.12.2 Método `.format()`
+
+O método `.format()` é mais flexível que o operador `%`, utilizando chaves `{}` como marcadores. Ele não exige a especificação do tipo de dado (int, float, etc.) para a formatação básica.
+
+##### Exemplo de Uso
+~~~python
+nome_aluno = 'Fabricio Daniel'
+media_aluno = 8.45
+
+print('Nome: {} - Média: {}'.format(nome_aluno, media_aluno))
+~~~
+
+##### Retorno esperado:
+~~~python
+Nome: Fabricio Daniel - Média: 8.45
+~~~
+
+---
+
+#### 1.12.3 Caracteres Especiais (Escaping)
+
+Caracteres especiais são sequências que representam ações (como quebras de linha) ou permitem imprimir símbolos reservados que o Python normalmente interpretaria como código.
+
+| Caractere | Função | Descrição |
+| :--- | :---: | :--- |
+| **`\n`** | Nova Linha | Equivale a pressionar "Enter" no texto. |
+| **`\t`** | Tabulação | Adiciona um recuo (espaço de tab) no texto. |
+| **`\\`** | Barra Invertida | Permite imprimir uma barra invertida literal. |
+| **`\"`** ou **`\'`** | Aspas | Permite imprimir aspas dentro de strings delimitadas pelo mesmo tipo de aspa. |
+
+
+
+##### Exemplo de Uso (Tabulação e Quebra de Linha)
+~~~python
+print('Quantidade\tQualidade\n5 amostras\tAlta\n3 amostras\tBaixa')
+~~~
+
+##### Retorno esperado:
+~~~python
+Quantidade	Qualidade
+5 amostras	Alta
+3 amostras	Baixa
+~~~
+
+##### Exemplo de Uso (Aspas e Caminhos de Arquivo)
+~~~python
+# Imprimindo aspas internas e caminhos de diretório
+print("Caminho: C:\\arquivos\\documento.csv")
+print('Minha professora disse: \'Estudar é a chave do sucesso.\'')
+~~~
+
+##### Retorno esperado:
+~~~python
+Caminho: C:\arquivos\documento.csv
+Minha professora disse: 'Estudar é a chave do sucesso.'
+~~~
+
+> [!IMPORTANT]
+> **Recomendação:** Entre as três formas de formatação (f-string, `.format()` e `%`), a **f-string** é a preferida na comunidade de Ciência de Dados por ser mais legível, rápida e fácil de manter.
+
+
