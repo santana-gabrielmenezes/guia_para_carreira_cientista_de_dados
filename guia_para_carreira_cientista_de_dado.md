@@ -569,3 +569,49 @@ Estudante aprovado(a)
 > [!IMPORTANT]
 > **Indentação:** No Python, o espaço (recuo) antes das instruções dentro do `if` e do `else` é obrigatório. É essa organização visual que informa ao interpretador quais comandos pertencem a cada bloco de decisão.
 
+### 1.13.3 Sintaxe, Indentação e Fluxo de Execução
+
+Diferente de outras linguagens que utilizam chaves, o Python utiliza a **indentação** (recuo de um "tab" ou 4 espaços) para definir o escopo de um bloco de instruções. A estrutura segue obrigatoriamente o padrão de palavra-chave (`if` ou `else`), condição e o uso de dois pontos (`:`) ao final da linha.
+
+
+
+---
+
+#### 1. Identificando Blocos de Instrução
+Instruções identadas pertencem ao bloco condicional e só são executadas se a condição for atendida. Instruções sem recuo estão **fora do bloco** e serão executadas independentemente do resultado lógico do `if`.
+
+##### Exemplo de Uso
+~~~python
+# Testando uma condição falsa
+if 2 > 7:
+    print('Este texto NÃO será exibido')
+    
+print('Fora do bloco: Este texto SEMPRE será exibido')
+~~~
+
+##### Retorno esperado:
+~~~python
+Fora do bloco: Este texto SEMPRE será exibido
+~~~
+
+---
+
+#### 2. A Estrutura Complementar: `else`
+O `else` (senão) atua como o caminho de saída quando a condição do `if` é falsa. Ele nunca possui uma condição própria e deve estar sempre alinhado verticalmente com o `if` correspondente.
+
+##### Exemplo de Uso
+~~~python
+# Verificando se 2 é menor que 7
+if 2 < 7:
+    print('Condição verdadeira')
+else:
+    print('Condição falsa')
+~~~
+
+##### Retorno esperado:
+~~~python
+Condição verdadeira
+~~~
+
+> [!IMPORTANT]
+> **Atenção ao Google Colab:** Ao pressionar "Enter" após os dois pontos (`:`), o ambiente realiza a indentação automática. Caso o recuo seja removido manualmente, o Python gerará um erro de sintaxe (`IndentationError`), impedindo a execução do código.
