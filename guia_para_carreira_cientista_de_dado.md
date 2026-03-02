@@ -529,4 +529,43 @@ Minha professora disse: 'Estudar é a chave do sucesso.'
 > [!IMPORTANT]
 > **Recomendação:** Entre as três formas de formatação (f-string, `.format()` e `%`), a **f-string** é a preferida na comunidade de Ciência de Dados por ser mais legível, rápida e fácil de manter.
 
+### 1.13 Estruturas Condicionais (if e else)
+
+Em Ciência de Dados, as estruturas condicionais são fundamentais para resolver problemas de categorização e tomada de decisão lógica. Elas permitem que o programa execute diferentes blocos de instruções baseando-se em uma condição: se ela for verdadeira, uma instrução é rodada; se for falsa, executa-se um caminho alternativo.
+
+
+
+#### 1.13.1 Lógica de Decisão
+
+A estrutura condicional básica é composta por dois caminhos lógicos:
+* **SE (if):** Verifica se uma condição é verdadeira para entrar no primeiro bloco de instruções.
+* **SENÃO (else):** Define o que deve acontecer quando a condição inicial não é atendida (é falsa).
+
+---
+
+#### 1.13.2 Estudo de Caso: Categorização de Estudantes
+
+Para automatizar a classificação de desempenho em uma instituição de ensino, utilizamos a média final (escala de 0.0 a 10.0) sob as seguintes condições:
+* **Aprovação:** Média maior ou igual a 6.0.
+* **Reprovação:** Média menor que 6.0.
+
+##### Exemplo de Uso (Sintaxe Python)
+~~~python
+# Definindo a média para teste
+media = 7.5
+
+# Aplicando a estrutura condicional
+if media >= 6.0:
+    print("Estudante aprovado(a)")
+else:
+    print("Estudante reprovado(a)")
+~~~
+
+##### Retorno esperado:
+~~~python
+Estudante aprovado(a)
+~~~
+
+> [!IMPORTANT]
+> **Indentação:** No Python, o espaço (recuo) antes das instruções dentro do `if` e do `else` é obrigatório. É essa organização visual que informa ao interpretador quais comandos pertencem a cada bloco de decisão.
 
