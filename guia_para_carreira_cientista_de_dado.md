@@ -309,3 +309,46 @@ GEOVANA ALESSANDRA DIAS SANTOS
 
 > [!TIP]
 > **Data Cleaning:** O encadeamento de métodos como `strip().replace().upper()` é uma técnica comum para garantir que nomes de categorias ou colunas em um conjunto de dados fiquem padronizados e sem erros de digitação antes da análise.
+
+### 1.10 O Padrão Unicode e a Função `chr()`
+
+O Python utiliza o padrão **Unicode** para codificação de caracteres, o que permite a representação consistente de textos em diversos idiomas, símbolos e emojis, independentemente da plataforma utilizada. Ao contrário do antigo padrão ASCII, limitado ao alfabeto inglês, o Unicode associa códigos numéricos a mais de 140 mil caracteres globais.
+
+
+
+#### 1.10.1 A Função `chr()`
+
+A função nativa `chr()` retorna a string correspondente ao código numérico especificado na tabela Unicode.
+
+##### Exemplo de Uso
+~~~python
+# Imprimindo o caractere "@" (código 64)
+print(chr(64))
+~~~
+
+##### Retorno esperado:
+~~~python
+@
+~~~
+
+---
+
+#### 1.10.2 Concatenação de Strings
+
+É possível unir múltiplas strings ou caracteres gerados pela função `chr()` utilizando o operador de soma `+`. Esse processo é conhecido como **concatenação**.
+
+##### Exemplo de Uso
+~~~python
+# Construindo a palavra 'Olá' via códigos Unicode
+palavra = chr(79) + chr(108) + chr(225) 
+print(palavra)
+~~~
+
+##### Retorno esperado:
+~~~python
+Olá
+~~~
+
+> [!TIP]
+> **Globalização de Dados:** Em Data Science, o suporte ao Unicode é fundamental para o processamento de textos (*Natural Language Processing*) de diferentes origens geográficas, garantindo que caracteres especiais como o "ç" ou o "ñ" não sejam corrompidos durante a análise.
+
