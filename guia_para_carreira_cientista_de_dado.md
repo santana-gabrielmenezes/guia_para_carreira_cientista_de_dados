@@ -1,6 +1,6 @@
 # 📚 Base de Conhecimento: Data Science
 
-## 01. Primeiros Passos em Dados
+## 01. Primeiros Passos em Python
 
 ### 1.1 O que é Python? <a name="python-intro"></a>
 
@@ -355,3 +355,4 @@ media_salarial
 
 > [!NOTE]
 > **Precedência Matemática:** Assim como na matemática tradicional, o Python executa primeiro a multiplicação (`*`) e a divisão (`/`) antes da soma (`+`) e subtração (`-`). Use parênteses para garantir que as somas do numerador sejam realizadas antes da divisão final.
+
