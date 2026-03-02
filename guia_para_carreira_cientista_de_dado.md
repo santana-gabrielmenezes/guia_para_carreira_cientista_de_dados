@@ -352,3 +352,82 @@ Olá
 > [!TIP]
 > **Globalização de Dados:** Em Data Science, o suporte ao Unicode é fundamental para o processamento de textos (*Natural Language Processing*) de diferentes origens geográficas, garantindo que caracteres especiais como o "ç" ou o "ñ" não sejam corrompidos durante a análise.
 
+### 1.11 Coleta e Conversão de Dados
+
+Diferente de variáveis com valores pré-definidos, a coleta dinâmica permite que o código interaja com o usuário final para obter informações em tempo real.
+
+#### 1.11.1 A Função `input()`
+
+A função `input()` é a ferramenta responsável por interromper a execução do código e aguardar que o usuário insira uma informação via teclado. Ela retorna o conteúdo coletado como uma **string (texto)**.
+
+
+
+##### Exemplo de Uso
+~~~python
+# Coletando e armazenando um nome
+nome = input('Escreva seu nome: ')
+
+# Exibindo o resultado
+print(nome)
+~~~
+
+##### Retorno esperado:
+~~~python
+Escreva seu nome: Mirla
+Mirla
+~~~
+
+---
+
+#### 1.11.2 Funções de Conversão (Casting)
+
+Como a função `input()` sempre retorna uma string, é necessário converter o dado caso queiramos realizar operações matemáticas ou lógicas. O Python oferece quatro funções principais para essa conversão:
+
+| Função | Tipo de Destino | Descrição |
+| :--- | :--- | :--- |
+| **`int()`** | Inteiro | Converte para números sem casas decimais. |
+| **`float()`** | Ponto Flutuante | Converte para números reais/decimais. |
+| **`str()`** | String | Converte qualquer valor em texto. |
+| **`bool()`** | Booleano | Converte para valores lógicos (True/False). |
+
+##### Exemplo de Uso (Conversão Aninhada)
+~~~python
+# Coletando o ano de ingresso e convertendo imediatamente para inteiro
+ano_entrada = int(input('Escreva o ano de ingresso do(a) estudante: '))
+
+print(type(ano_entrada))
+~~~
+
+##### Retorno esperado:
+~~~python
+Escreva o ano de ingresso do(a) estudante: 2026
+<class 'int'>
+~~~
+
+---
+
+#### 1.11.3 Formatação de Saída com f-strings
+
+As **f-strings** (formatted strings) permitem interpolar variáveis dentro de textos de forma elegante e legível, facilitando a apresentação de relatórios e resultados.
+
+
+
+##### Exemplo Prático: Registro de Estudante
+~~~python
+# Coleta e conversão de dados
+ano_entrada = int(input('Escreva o ano de ingresso: '))
+nota_entrada = float(input('Digite a nota do teste de ingresso: '))
+
+# Exibição formatada utilizando o prefixo 'f' antes das aspas
+print(f'Ano de entrada {ano_entrada} - Nota do teste de ingresso {nota_entrada}')
+~~~
+
+##### Retorno esperado:
+~~~python
+Escreva o ano de ingresso: 2026
+Digite a nota do teste de ingresso: 9.0
+Ano de entrada 2026 - Nota do teste de ingresso 9.0
+~~~
+
+> [!IMPORTANT]
+> **Boas Práticas:** Ao utilizar `input()`, sempre adicione um espaço após os "dois pontos (:)" na frase de solicitação. Isso evita que o cursor do usuário fique colado ao texto, melhorando a experiência de uso.
