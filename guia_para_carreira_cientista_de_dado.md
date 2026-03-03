@@ -208,7 +208,7 @@ print(resultado)
 
 ---
 
-#### 2. Módulo (`%`)
+2. Módulo (`%`)
 Útil para identificar se um número é par ou ímpar, ou para encontrar o que sobra de uma divisão não exata.
 
 ##### Exemplo de Uso
@@ -226,7 +226,7 @@ print(dividendo % divisor)
 
 ---
 
-#### 3. Divisão Inteira (`//`)
+3. Divisão Inteira (`//`)
 Diferente da divisão comum (`/`), este operador descarta as casas decimais e retorna apenas o quociente inteiro.
 
 ##### Exemplo de Uso
@@ -569,7 +569,7 @@ Estudante aprovado(a)
 > [!IMPORTANT]
 > **Indentação:** No Python, o espaço (recuo) antes das instruções dentro do `if` e do `else` é obrigatório. É essa organização visual que informa ao interpretador quais comandos pertencem a cada bloco de decisão.
 
-### 1.13.3 Sintaxe, Indentação e Fluxo de Execução
+#### 1.13.3 Sintaxe, Indentação e Fluxo de Execução
 
 Diferente de outras linguagens que utilizam chaves, o Python utiliza a **indentação** (recuo de um "tab" ou 4 espaços) para definir o escopo de um bloco de instruções. A estrutura segue obrigatoriamente o padrão de palavra-chave (`if` ou `else`), condição e o uso de dois pontos (`:`) ao final da linha.
 
@@ -577,7 +577,7 @@ Diferente de outras linguagens que utilizam chaves, o Python utiliza a **indenta
 
 ---
 
-#### 1. Identificando Blocos de Instrução
+#### 1.13.4. Identificando Blocos de Instrução
 Instruções identadas pertencem ao bloco condicional e só são executadas se a condição for atendida. Instruções sem recuo estão **fora do bloco** e serão executadas independentemente do resultado lógico do `if`.
 
 ##### Exemplo de Uso
@@ -596,7 +596,7 @@ Fora do bloco: Este texto SEMPRE será exibido
 
 ---
 
-#### 2. A Estrutura Complementar: `else`
+#### 1.13.5. A Estrutura Complementar: `else`
 O `else` (senão) atua como o caminho de saída quando a condição do `if` é falsa. Ele nunca possui uma condição própria e deve estar sempre alinhado verticalmente com o `if` correspondente.
 
 ##### Exemplo de Uso
@@ -756,3 +756,4 @@ Os livros têm títulos diferentes
 
 > [!TIP]
 > **Data Validation:** Em Ciência de Dados, o operador `!=` é amplamente usado para filtrar registros que não pertencem a uma determinada categoria ou para identificar anomalias em conjuntos de dados.
+
