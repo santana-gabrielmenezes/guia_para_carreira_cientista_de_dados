@@ -158,7 +158,7 @@ Variáveis numéricas (`int` e `float`) podem ser manipuladas para cálculos ari
 | Multiplicação | `*` |
 | Divisão | `/` |
 
-#### Exemplo Prático: Média Ponderada
+##### Exemplo Prático: Média Ponderada
 ~~~python
 # Cálculo utilizando precedência com parênteses
 total_empregados = 5 + 16 + 1
@@ -175,7 +175,7 @@ print(media_salarial)
 > [!NOTE]
 > **Precedência:** Multiplicação e divisão são executadas antes de soma e subtração. Utilize parênteses para forçar a ordem desejada.
 
-### 1.7.1 Operadores Aritméticos Complementares
+#### 1.7.1 Operadores Aritméticos Complementares
 
 Além das operações básicas, o Python dispõe de operadores para cálculos específicos como potência, resto e divisões inteiras.
 
@@ -189,7 +189,7 @@ Além das operações básicas, o Python dispõe de operadores para cálculos es
 
 ---
 
-#### 1. Exponenciação (`**`)
+1. Exponenciação (`**`)
 Para realizar o cálculo, define-se a base à esquerda e o expoente à direita do operador.
 
 ##### Exemplo de Uso
@@ -615,3 +615,144 @@ Condição verdadeira
 
 > [!IMPORTANT]
 > **Atenção ao Google Colab:** Ao pressionar "Enter" após os dois pontos (`:`), o ambiente realiza a indentação automática. Caso o recuo seja removido manualmente, o Python gerará um erro de sintaxe (`IndentationError`), impedindo a execução do código.
+
+### 1.14 Operadores Relacionais
+
+Uma condição no Python é fundamentada na comparação entre dados, resultando em um valor booleano (**True** ou **False**). Os operadores relacionais são as ferramentas que executam essas comparações para determinar o fluxo lógico do programa.
+
+
+
+---
+
+#### 1.14.1 Operadores de Magnitude (> e <)
+
+Estes operadores verificam se um valor é estritamente maior ou menor que outro. Caso os valores sejam iguais, ambos retornarão **False**.
+
+**1. Maior que (>)**
+Retorna verdadeiro apenas se o valor à esquerda for superior ao da direita.
+
+##### Exemplo de Uso
+~~~python
+idade_maria = int(input('Digite a idade da Maria: '))
+idade_beatriz = int(input('Digite a idade da Beatriz: '))
+
+if idade_maria > idade_beatriz:
+    print('Maria é mais velha que Beatriz.')
+~~~
+
+##### Retorno esperado:
+~~~python
+Digite a idade da Maria: 12
+Digite a idade da Beatriz: 10
+Maria é mais velha que Beatriz
+~~~
+
+**2. Menor que (<)**
+Retorna verdadeiro se o valor à esquerda for inferior ao da direita.
+
+##### Exemplo de Uso
+~~~python
+idade_maria = int(input('Digite a idade da Maria: '))
+idade_beatriz = int(input('Digite a idade da Beatriz: '))
+
+if idade_maria < idade_beatriz:
+    print('Maria é mais nova que Beatriz.')
+~~~
+
+##### Retorno esperado:
+~~~python
+Digite a idade da Maria: 30
+Digite a idade da Beatriz: 34
+Maria é mais nova que Beatriz
+~~~
+
+---
+
+#### 1.14.2 Operadores de Limite (>= e <=)
+
+Diferente dos anteriores, estes operadores incluem a igualdade na condição de verdade.
+
+**1. Maior ou igual a (>=)**
+Retorna verdadeiro se o valor à esquerda for maior ou exatamente igual ao da direita.
+
+##### Exemplo de Uso
+~~~python
+emp_1 = int(input('Digite a quantidade de empregados da empresa 1: '))
+emp_2 = int(input('Digite a quantidade de empregados da empresa 2: '))
+
+if emp_1 >= emp_2:
+    print('Empresa 1 tem uma quantidade de empregados maior ou igual à empresa 2.')
+~~~
+
+##### Retorno esperado:
+~~~python
+Digite a quantidade de empregados da empresa 1: 300
+Digite a quantidade de empregados da empresa 2: 150
+Empresa 1 tem uma quantidade de empregados maior ou igual à empresa 2
+~~~
+
+**2. Menor ou igual a (<=)**
+Retorna verdadeiro se o valor à esquerda for menor ou igual ao da direita.
+
+##### Exemplo de Uso
+~~~python
+emp_1 = int(input('Digite a quantidade de empregados da empresa 1: '))
+emp_2 = int(input('Digite a quantidade de empregados da empresa 2: '))
+
+if emp_1 <= emp_2:
+    print('Empresa 1 tem uma quantidade de empregados menor ou igual à empresa 2.')
+~~~
+
+##### Retorno esperado:
+~~~python
+Digite a quantidade de empregados da empresa 1: 200
+Digite a quantidade de empregados da empresa 2: 200
+Empresa 1 tem uma quantidade de empregados menor ou igual à empresa 2
+~~~
+
+---
+
+#### 1.14.3 Operadores de Identidade e Diferença (== e !=)
+
+Estes operadores comparam se dois objetos são idênticos ou distintos, funcionando tanto para números quanto para strings.
+
+**1. Igual a (==)**
+Retorna verdadeiro se os valores forem idênticos.
+
+##### Exemplo de Uso
+~~~python
+livro_1 = input('Digite o título do 1° livro: ')
+livro_2 = input('Digite o título do 2° livro: ')
+
+if livro_1 == livro_2:
+    print('Os livros têm o mesmo título')
+~~~
+
+##### Retorno esperado:
+~~~python
+Digite o título do 1° livro: Verso e Código
+Digite o título do 2° livro: Verso e Código
+Os livros têm o mesmo título
+~~~
+
+**2. Diferente de (!=)**
+É o inverso da igualdade; retorna verdadeiro se os valores não forem os mesmos.
+
+##### Exemplo de Uso
+~~~python
+livro_1 = input('Digite o título do 1° livro: ')
+livro_2 = input('Digite o título do 2° livro: ')
+
+if livro_1 != livro_2:
+    print('Os livros têm títulos diferentes')
+~~~
+
+##### Retorno esperado:
+~~~python
+Digite o título do 1° livro: Verso e Código
+Digite o título do 2° livro: Programar com versos
+Os livros têm títulos diferentes
+~~~
+
+> [!TIP]
+> **Data Validation:** Em Ciência de Dados, o operador `!=` é amplamente usado para filtrar registros que não pertencem a uma determinada categoria ou para identificar anomalias em conjuntos de dados.
