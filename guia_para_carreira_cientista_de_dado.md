@@ -979,7 +979,71 @@ Marcelo Nogueira não está na lista
 > [!TIP]
 > **Automação de Dados:** O uso do operador `in` é uma ferramenta poderosa para automatizar buscas em grandes volumes de texto, reduzindo o trabalho manual e a margem de erro em projetos de análise de dados.
 
-#### 1.15.4 Tabela Verdade
+### 1.15.4 Operadores de Atribuição
+
+Os operadores de atribuição têm como função principal definir ou atualizar o valor armazenado em uma variável. O operador mais básico e frequente no Python é o `=`, que realiza a atribuição direta e literal de um dado.
+
+
+
+---
+
+#### 1. Atribuição Composta
+
+Além da atribuição simples, o Python oferece operadores compostos que realizam uma operação aritmética e atualizam a variável no mesmo passo. Já utilizamos o operador de soma `+=` em nossos contadores para adicionar um valor específico ao conteúdo atual da variável.
+
+##### Exemplo de Uso
+~~~python
+preco = 2.00
+# Adicionando 3 ao valor atual (2.00 + 3)
+preco += 3
+print(preco)
+~~~
+
+##### Retorno esperado
+~~~python
+5.0
+~~~
+
+---
+
+#### 2. Outros Operadores de Atualização
+
+Existem variações para todas as operações aritméticas básicas, permitindo alterar os valores das variáveis de forma concisa.
+
+| Operador | Descrição | Exemplo | Lógica Equivalente |
+| :--- | :--- | :--- | :--- |
+| **`-=`** | Subtrai um valor da variável. | `preco -= 5` | $preco = preco - 5$ |
+| **`*=`** | Multiplica a variável por um valor. | `preco *= 3` | $preco = preco * 3$ |
+| **`/=`** | Divide a variável por um valor. | `preco /= 2` | $preco = preco / 2$ |
+| **`//=`** | Realiza a divisão inteira da variável. | `preco //= 6` | $preco = preco // 6$ |
+| **`%=`** | Atribui o resto da divisão à variável. | `preco %= 5` | $preco = preco \% 5$ |
+
+##### Exemplo Prático: Desconto e Atualização
+~~~python
+estoque = 100
+venda = 15
+
+# Atualizando o estoque após uma venda (subtração)
+estoque -= venda
+print(f"Itens restantes: {estoque}")
+
+# Aplicando um multiplicador de bônus
+pontos = 10
+pontos *= 2
+print(f"Total de pontos: {pontos}")
+~~~
+
+##### Retorno esperado
+~~~python
+Itens restantes: 85
+Total de pontos: 20
+~~~
+
+> [!TIP]
+> **Eficiência de Código:** O uso de operadores como `+=` e `-=` torna o código mais limpo e reduz o risco de erros de digitação ao repetir o nome da variável em ambos os lados do sinal de igual.
+
+
+#### 1.15.5 Tabela Verdade
 
 Para construir expressões lógicas que resultem no comportamento esperado, é essencial compreender o funcionamento da **tabela verdade** de cada operador. Essas tabelas auxiliam na análise de algoritmos e na verificação da validade de expressões, mapeando todos os resultados possíveis para cada combinação de valores lógicos.
 
@@ -1099,75 +1163,75 @@ O laço `while` (enquanto) é uma estrutura que repete um bloco de código enqua
 ~~~python
 while condição:
     # bloco de código que será repetido
-~~~
-As instruções dentro do laço devem estar obrigatoriamente tabuladas (indentadas) para que o Python compreenda que pertencem à repetição.
+    ~~~
+    As instruções dentro do laço devem estar obrigatoriamente tabuladas (indentadas) para que o Python compreenda que pertencem à repetição.
 
----
+    ---
 
-##### Exemplo Prático: Contador de 1 a 10
+    ##### Exemplo Prático: Contador de 1 a 10
 
-Para entender a execução, podemos criar um contador que exibe números sequenciais. Para isso, utilizamos uma variável de controle que é atualizada a cada ciclo.
+    Para entender a execução, podemos criar um contador que exibe números sequenciais. Para isso, utilizamos uma variável de controle que é atualizada a cada ciclo.
 
-##### Exemplo de Uso
-~~~python
-contador = 1
-while contador <= 10:
-    print(contador)
-    # Incrementando a variável para atualizar o valor
-    contador += 1
-~~~
+    ##### Exemplo de Uso
+    ~~~python
+    contador = 1
+    while contador <= 10:
+        print(contador)
+            # Incrementando a variável para atualizar o valor
+                contador += 1
+                ~~~
 
-##### Retorno esperado
-~~~python
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-~~~
+                ##### Retorno esperado
+                ~~~python
+                1
+                2
+                3
+                4
+                5
+                6
+                7
+                8
+                9
+                10
+                ~~~
 
-> [!IMPORTANT]
-> **Operador de Atribuição Composta:** A expressão `contador += 1` é uma forma simplificada em Python para escrever `contador = contador + 1`. Sem essa incrementação, a condição permaneceria verdadeira para sempre, gerando um **loop infinito** que travaria a execução do código.
+                > [!IMPORTANT]
+                > **Operador de Atribuição Composta:** A expressão `contador += 1` é uma forma simplificada em Python para escrever `contador = contador + 1`. Sem essa incrementação, a condição permaneceria verdadeira para sempre, gerando um **loop infinito** que travaria a execução do código.
 
----
+                ---
 
-##### Automação do Registro de Notas
+                ##### Automação do Registro de Notas
 
-Utilizando o `while`, podemos resolver o desafio de coletar médias para múltiplos estudantes sem duplicar linhas de código manualmente. Abaixo, o laço é configurado para rodar exatamente três vezes.
+                Utilizando o `while`, podemos resolver o desafio de coletar médias para múltiplos estudantes sem duplicar linhas de código manualmente. Abaixo, o laço é configurado para rodar exatamente três vezes.
 
-##### Exemplo de Uso
-~~~python
-# Inicializando o contador
-contador = 1
+                ##### Exemplo de Uso
+                ~~~python
+                # Inicializando o contador
+                contador = 1
 
-while contador <= 3:
-    nota_1 = float(input('Digite a 1° nota: '))
-    nota_2 = float(input('Digite a 2° nota: '))
+                while contador <= 3:
+                    nota_1 = float(input('Digite a 1° nota: '))
+                        nota_2 = float(input('Digite a 2° nota: '))
 
-    print(f'Média: {(nota_1 + nota_2) / 2}')
-    
-    # Atualizando o contador para evitar loop infinito
-    contador += 1
-~~~
+                            print(f'Média: {(nota_1 + nota_2) / 2}')
+                                
+                                    # Atualizando o contador para evitar loop infinito
+                                        contador += 1
+                                        ~~~
 
-##### Retorno esperado (Simulação para 3 alunos)
-~~~python
-Digite a 1° nota: 5
-Digite a 2° nota: 6
-Média: 5.5
-Digite a 1° nota: 7
-Digite a 2° nota: 9
-Média: 8.0
-Digite a 1° nota: 4
-Digite a 2° nota: 4
-Média: 4.0
-~~~
+                                        ##### Retorno esperado (Simulação para 3 alunos)
+                                        ~~~python
+                                        Digite a 1° nota: 5
+                                        Digite a 2° nota: 6
+                                        Média: 5.5
+                                        Digite a 1° nota: 7
+                                        Digite a 2° nota: 9
+                                        Média: 8.0
+                                        Digite a 1° nota: 4
+                                        Digite a 2° nota: 4
+                                        Média: 4.0
+                                        ~~~
 
-> [!TIP]
-> **Fluxo de Dados:** Observe que o programa solicita as entradas sequencialmente. Assim que a média do primeiro aluno é exibida, o contador passa a valer 2, a condição `2 <= 3` é validada e o bloco reinicia automaticamente para o próximo estudante.
+                                        > [!TIP]
+                                        > **Fluxo de Dados:** Observe que o programa solicita as entradas sequencialmente. Assim que a média do primeiro aluno é exibida, o contador passa a valer 2, a condição `2 <= 3` é validada e o bloco reinicia automaticamente para o próximo estudante.
 
