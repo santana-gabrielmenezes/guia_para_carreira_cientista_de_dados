@@ -978,3 +978,49 @@ Marcelo Nogueira não está na lista
 
 > [!TIP]
 > **Automação de Dados:** O uso do operador `in` é uma ferramenta poderosa para automatizar buscas em grandes volumes de texto, reduzindo o trabalho manual e a margem de erro em projetos de análise de dados.
+
+#### 1.15.4 Tabela Verdade
+
+Para construir expressões lógicas que resultem no comportamento esperado, é essencial compreender o funcionamento da **tabela verdade** de cada operador. Essas tabelas auxiliam na análise de algoritmos e na verificação da validade de expressões, mapeando todos os resultados possíveis para cada combinação de valores lógicos.
+
+
+
+---
+
+**1. Operador `and` (E)**
+
+A lógica do operador `and` estabelece que a saída só será **Verdadeira (True)** se ambos os operandos forem simultaneamente verdadeiros. Caso qualquer uma das entradas seja falsa, o resultado final será **Falso (False)**.
+
+| Operando 1 | Operando 2 | Resultado (`and`) |
+| :--- | :--- | :--- |
+| `False` | `False` | `False` |
+| `False` | `True` | `False` |
+| `True` | `False` | `False` |
+| `True` | `True` | `True` |
+
+---
+
+**2. Operador `or` (OU)**
+
+Diferente do anterior, o operador `or` retorna **Verdadeiro (True)** se pelo menos um dos operandos for verdadeiro. O resultado só será **Falso (False)** se ambas as entradas forem falsas.
+
+| Operando 1 | Operando 2 | Resultado (`or`) |
+| :--- | :--- | :--- |
+| `False` | `False` | `False` |
+| `False` | `True` | `True` |
+| `True` | `False` | `True` |
+| `True` | `True` | `True` |
+
+---
+
+**3. Operador `not` (NÃO)**
+
+O operador `not` possui a tabela mais simples, pois atua sobre um único operando realizando a inversão do seu valor lógico.
+
+| Operando | Resultado (`not`) |
+| :--- | :--- |
+| `True` | `False` |
+| `False` | `True` |
+
+> [!TIP]
+> **Validação de Algoritmos:** Consultar a tabela verdade durante a fase de planejamento do código ajuda a evitar erros de lógica (bugs) em sistemas de decisão complexos, garantindo que todas as combinações de dados sejam tratadas corretamente.
