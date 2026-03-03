@@ -616,6 +616,103 @@ Condição verdadeira
 > [!IMPORTANT]
 > **Atenção ao Google Colab:** Ao pressionar "Enter" após os dois pontos (`:`), o ambiente realiza a indentação automática. Caso o recuo seja removido manualmente, o Python gerará um erro de sintaxe (`IndentationError`), impedindo a execução do código.
 
+### 1.13.6 Condicionais em Cascata
+
+Quando uma situação exige mais de duas saídas (ex: Aprovado, Recuperação e Reprovado), podemos utilizar um conjunto de `if`s em sequência para validar cada intervalo de valores separadamente. Nesta estrutura, o `else` não é obrigatório, pois cada `if` funciona como uma verificação independente.
+
+
+
+##### Exemplo de Uso
+~~~python
+media = float(input('Digite a média: '))
+
+# Condição 1: Aprovação
+if media >= 6.0:
+    print('Aprovado(a)')
+
+# Condição 2: Recuperação (entre 4.0 e 6.0)
+if 6.0 > media >= 4.0:
+    print('Recuperação')
+
+# Condição 3: Reprovação (abaixo de 4.0)
+if media < 4.0:
+    print('Reprovado(a)')
+~~~
+
+##### Retorno esperado (caso média 5.0):
+~~~python
+Digite a média: 5.0
+Recuperação
+~~~
+
+---
+
+### 1.13.7 O Problema da Associação do `else`
+
+Um erro comum ao lidar com múltiplas condições é tentar finalizar uma sequência de `if`s independentes com um único `else`. No Python, o `else` se associa exclusivamente ao `if` imediatamente anterior a ele. 
+
+Isso pode gerar resultados inconsistentes e saídas duplas, pois o programa pode validar o primeiro `if` como verdadeiro e, simultaneamente, executar o `else` do segundo bloco por este ter resultado em falso.
+
+##### Exemplo de Erro Lógico
+~~~python
+media = float(input('Digite a média: '))
+
+if media >= 6.0:
+    print('Aprovado(a)') # Primeiro bloco independente
+
+if 6.0 > media >= 4.0:
+    print('Recuperação') # Segundo bloco associado ao else abaixo
+else:
+    print('Reprovado(a)')
+~~~
+
+##### Retorno esperado (Erro de lógica com média 7.0):
+~~~python
+Digite a média: 7.0
+Aprovado(a)
+Reprovado(a)
+~~~
+
+> [!CAUTION]
+> **Risco de Saída Dupla:** No exemplo acima, como 7.0 é maior que 6.0, o primeiro `print` é executado. Porém, como 7.0 não está entre 4.0 e 6.0, a segunda condição é falsa, disparando o `else` associado e imprimindo também "Reprovado(a)". Para resolver este problema de forma elegante, utilizamos a estrutura `elif`, que será abordada na sequência.
+
+### 1.13.8 A Estrutura `elif`
+
+A palavra-chave `elif` é uma abreviação para "senão, se" (*else if*) e funciona como uma união entre o `else` e o `if`. Ela é utilizada para criar estruturas condicionais encadeadas, onde uma condição só é verificada se a condição superior a ela for falsa.
+
+Diferente do `else`, o `elif` permite testar uma nova condição específica logo após um `if` que resultou em falso. A estrutura segue esta lógica:
+1.  **`if`**: Verifica a primeira condição.
+2.  **`elif`**: Só é avaliado se o `if` anterior for falso. Se sua própria condição for verdadeira, executa seu bloco de comando.
+3.  **`else`**: Só é executado se todas as condições anteriores (`if` e todos os `elif`s) forem falsas.
+
+> [!NOTE]
+> **Escalabilidade:** É possível adicionar quantos blocos `elif` forem necessários entre o `if` e o `else`, não existindo uma limitação técnica, embora o excesso de encadeamento não seja considerado uma boa prática de programação.
+
+
+Para resolver o problema das saídas duplas e do encadeamento ineficiente de múltiplos `if`s independentes, remodelamos a lógica de avaliação da instituição de ensino utilizando a estrutura `if-elif-else`.
+
+##### Exemplo de Uso
+~~~python
+# Coleta da média e aplicação da estrutura integrada
+media = float(input('Digite a média: '))
+
+if media >= 6.0:
+    print('Aprovado(a)')
+elif 6.0 > media >= 4.0:
+    print('Recuperação')
+else:
+    print('Reprovado(a)')
+~~~
+
+##### Retorno esperado
+~~~python
+Digite a média: 5.0
+Recuperação
+~~~
+
+> [!TIP]
+> **Eficiência Lógica:** Nesta estrutura, assim que o Python encontra uma condição verdadeira, ele executa o bloco correspondente e ignora o restante da cadeia. Isso garante que um estudante com média 7.0 receba apenas o status de "Aprovado(a)", sem disparar o bloco `else` por engano.
+
 ### 1.14 Operadores Relacionais
 
 Uma condição no Python é fundamentada na comparação entre dados, resultando em um valor booleano (**True** ou **False**). Os operadores relacionais são as ferramentas que executam essas comparações para determinar o fluxo lógico do programa.
@@ -757,3 +854,127 @@ Os livros têm títulos diferentes
 > [!TIP]
 > **Data Validation:** Em Ciência de Dados, o operador `!=` é amplamente usado para filtrar registros que não pertencem a uma determinada categoria ou para identificar anomalias em conjuntos de dados.
 
+### 1.15 Operadores Lógicos e de Pertencimento
+
+As **expressões lógicas** são construções fundamentais para solucionar problemas complexos em Ciência de Dados através da combinação de múltiplos critérios. Elas são compostas por dois elementos principais:
+* **Operandos Lógicos:** Elementos comparados ou avaliados em uma expressão que resultam em `True` (verdadeiro) ou `False` (falso).
+* **Operadores Lógicos:** Palavras-chave ou símbolos usados para combinar esses operandos em uma única instrução.
+
+
+
+---
+
+#### 1.15.1 Atribuição Múltipla
+
+Antes de manipular expressões, é possível utilizar a **atribuição múltipla** para ligar diversas variáveis a um mesmo valor simultaneamente, o que facilita a inicialização de estados lógicos no código.
+
+##### Exemplo de Uso
+~~~python
+# Atribuindo True a t1 e t2, e False a f1 e f2
+t1 = t2 = True
+f1 = f2 = False
+
+print(f"t1: {t1}, f1: {f1}")
+~~~
+
+##### Retorno esperado
+~~~python
+t1: True, f1: False
+~~~
+
+---
+
+#### 1.15.2 Operadores Lógicos (`and`, `or`, `not`)
+
+Estes operadores definem como os valores booleanos interagem entre si para formar uma decisão lógica final.
+
+| Operador | Regra de Funcionamento | Resultado |
+| :--- | :--- | :--- |
+| **`and`** | Exige que **todas** as entradas sejam verdadeiras. | `True` apenas se ambos os operandos forem `True`. |
+| **`or`** | Exige que **pelo menos uma** entrada seja verdadeira. | `False` apenas se ambos os operandos forem `False`. |
+| **`not`** | Realiza a **inversão** do resultado booleano. | Transforma `True` em `False` e vice-versa. |
+
+**1. Operador `and` (E)**
+##### Exemplo de Uso
+~~~python
+# O 'and' só retorna verdadeiro se ambas as entradas forem True
+if t1 and f2:
+    print('expressão verdadeira')
+else:
+    print('expressão falsa')
+~~~
+
+##### Retorno esperado
+~~~python
+expressão falsa
+~~~
+
+**2. Operador `or` (OU)**
+##### Exemplo de Uso
+~~~python
+# O 'or' retorna verdadeiro se houver pelo menos uma entrada True
+if t1 or f2:
+    print('expressão verdadeira')
+else:
+    print('expressão falsa')
+~~~
+
+##### Retorno esperado
+~~~python
+expressão verdadeira
+~~~
+
+**3. Operador `not` (NÃO)**
+##### Exemplo de Uso
+~~~python
+# O 'not' inverte o valor de t1 (que é True) para False
+if not t1:
+    print('expressão verdadeira')
+else:
+    print('expressão falsa')
+~~~
+
+##### Retorno esperado
+~~~python
+expressão falsa
+~~~
+
+---
+
+#### 1.15.3 Operador de Pertencimento (`in`)
+
+O operador `in` verifica se um determinado elemento está contido dentro de um conjunto ou sequência de elementos, como uma string ou uma lista. Se o elemento for encontrado, o resultado é `True`; caso contrário, é `False`.
+
+
+
+##### Estudo de Caso: Busca em Lista de Aprovados
+Na instituição de ensino, utilizamos o `in` para automatizar a verificação de nomes em listas extensas de estudantes aprovados.
+
+##### Exemplo de Uso
+~~~python
+# Base de dados de estudantes
+lista = 'José da Silva, Maria Oliveira, Pedro Martins, Ana Souza, Mariana Rodrigues'
+nome_1 = 'Mariana Rodrigues'
+nome_2 = 'Marcelo Nogueira'
+
+# Verificando se Mariana Rodrigues está na lista
+if nome_1 in lista:
+    print(f'{nome_1} está na lista')
+else:
+    print(f'{nome_1} não está na lista')
+
+# Verificando se Marcelo Nogueira está na lista
+if nome_2 in lista:
+    print(f'{nome_2} está na lista')
+else:
+    print(f'{nome_2} não está na lista')
+~~~
+
+##### Retorno esperado
+~~~python
+Mariana Rodrigues está na lista
+Marcelo Nogueira não está na lista
+~~~
+
+> [!TIP]
+> **Automação de Dados:** O uso do operador `in` é uma ferramenta poderosa para automatizar buscas em grandes volumes de texto, reduzindo o trabalho manual e a margem de erro em projetos de análise de dados.
