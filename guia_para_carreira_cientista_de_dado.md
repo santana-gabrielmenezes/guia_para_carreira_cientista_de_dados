@@ -1024,3 +1024,150 @@ O operador `not` possui a tabela mais simples, pois atua sobre um único operand
 
 > [!TIP]
 > **Validação de Algoritmos:** Consultar a tabela verdade durante a fase de planejamento do código ajuda a evitar erros de lógica (bugs) em sistemas de decisão complexos, garantindo que todas as combinações de dados sejam tratadas corretamente.
+
+### 1.16 Estruturas de Repetição
+
+Até o momento, trabalhamos com execuções lineares de código. No entanto, em Ciência de Dados, frequentemente precisamos realizar a mesma tarefa para múltiplos registros (ex: processar notas de centenas de estudantes), o que torna a repetição manual inviável.
+
+[Image comparing manual code repetition versus loop structure in programming]
+
+---
+
+#### 1.16.1 O Problema da Repetição Manual
+
+Considere a tarefa de coletar duas notas de um estudante e calcular sua média. O bloco de código abaixo executa essa função com eficiência para uma única pessoa:
+
+##### Exemplo de Uso (Um Estudante)
+~~~python
+# Coleta e cálculo imediato da média
+nota_1 = float(input('Digite a 1° nota: '))
+nota_2 = float(input('Digite a 2° nota: '))
+
+print(f'Média: {(nota_1 + nota_2) / 2}')
+~~~
+
+##### Retorno esperado
+~~~python
+Digite a 1° nota: 5
+Digite a 2° nota: 6
+Média: 5.5
+~~~
+
+Caso precisemos realizar o mesmo cálculo para três estudantes, a solução imediata seria copiar e colar o bloco de código três vezes. Embora funcional para uma escala pequena, essa abordagem gera códigos extensos e de difícil manutenção.
+
+##### Exemplo de Uso (Três Estudantes - Repetição Manual)
+~~~python
+# Repetição manual do bloco para 3 estudantes
+nota_1 = float(input('Digite a 1° nota: '))
+nota_2 = float(input('Digite a 2° nota: '))
+print(f'Média: {(nota_1 + nota_2) / 2}')
+
+nota_1 = float(input('Digite a 1° nota: '))
+nota_2 = float(input('Digite a 2° nota: '))
+print(f'Média: {(nota_1 + nota_2) / 2}')
+
+nota_1 = float(input('Digite a 1° nota: '))
+nota_2 = float(input('Digite a 2° nota: '))
+print(f'Média: {(nota_1 + nota_2) / 2}')
+~~~
+
+---
+
+#### 1.16.2 A Necessidade de Automação
+
+Ao imaginarmos um cenário real com **100 estudantes**, a repetição manual deixaria de ser produtiva, cansativa e tornaria o código desnecessariamente gigantesco. É nesta situação que entram as **Estruturas de Repetição** (ou laços de repetição).
+
+Estas estruturas são capazes de repetir um mesmo conjunto de comandos quantas vezes forem definidas. Em vez de escrever o código 100 vezes, colocamos o bloco dentro de um laço e instruímos o Python a executá-lo pelo número de vezes desejado, mantendo o código limpo e eficiente.
+
+
+
+#### 1.16.3 Estruturas de Repetição no Python
+Para construir laços de repetição, o Python utiliza duas palavras-chave principais:
+* **`while`**: Executa a repetição enquanto uma condição específica for verdadeira.
+* **`for`**: Geralmente utilizado para percorrer sequências ou repetir ações um número pré-determinado de vezes.
+
+> [!TIP]
+> **Data Science Tip:** O uso de loops é o primeiro passo para o processamento de grandes conjuntos de dados (Big Data), permitindo que um único algoritmo analise milhares de linhas de informação de forma automatizada e rápida.
+
+#### 1.16.4 O Laço de Repetição `while`
+
+O laço `while` (enquanto) é uma estrutura que repete um bloco de código enquanto uma determinada condição for verdadeira. Ele funciona de forma análoga a uma estrutura `if`, porém, em vez de executar o bloco apenas uma vez, ele retorna ao início da verificação após cada execução das instruções.
+
+
+
+##### Sintaxe do `while`
+~~~python
+while condição:
+    # bloco de código que será repetido
+~~~
+As instruções dentro do laço devem estar obrigatoriamente tabuladas (indentadas) para que o Python compreenda que pertencem à repetição.
+
+---
+
+##### Exemplo Prático: Contador de 1 a 10
+
+Para entender a execução, podemos criar um contador que exibe números sequenciais. Para isso, utilizamos uma variável de controle que é atualizada a cada ciclo.
+
+##### Exemplo de Uso
+~~~python
+contador = 1
+while contador <= 10:
+    print(contador)
+    # Incrementando a variável para atualizar o valor
+    contador += 1
+~~~
+
+##### Retorno esperado
+~~~python
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+~~~
+
+> [!IMPORTANT]
+> **Operador de Atribuição Composta:** A expressão `contador += 1` é uma forma simplificada em Python para escrever `contador = contador + 1`. Sem essa incrementação, a condição permaneceria verdadeira para sempre, gerando um **loop infinito** que travaria a execução do código.
+
+---
+
+##### Automação do Registro de Notas
+
+Utilizando o `while`, podemos resolver o desafio de coletar médias para múltiplos estudantes sem duplicar linhas de código manualmente. Abaixo, o laço é configurado para rodar exatamente três vezes.
+
+##### Exemplo de Uso
+~~~python
+# Inicializando o contador
+contador = 1
+
+while contador <= 3:
+    nota_1 = float(input('Digite a 1° nota: '))
+    nota_2 = float(input('Digite a 2° nota: '))
+
+    print(f'Média: {(nota_1 + nota_2) / 2}')
+    
+    # Atualizando o contador para evitar loop infinito
+    contador += 1
+~~~
+
+##### Retorno esperado (Simulação para 3 alunos)
+~~~python
+Digite a 1° nota: 5
+Digite a 2° nota: 6
+Média: 5.5
+Digite a 1° nota: 7
+Digite a 2° nota: 9
+Média: 8.0
+Digite a 1° nota: 4
+Digite a 2° nota: 4
+Média: 4.0
+~~~
+
+> [!TIP]
+> **Fluxo de Dados:** Observe que o programa solicita as entradas sequencialmente. Assim que a média do primeiro aluno é exibida, o contador passa a valer 2, a condição `2 <= 3` é validada e o bloco reinicia automaticamente para o próximo estudante.
+
