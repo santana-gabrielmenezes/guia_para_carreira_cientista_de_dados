@@ -1162,76 +1162,76 @@ O laço `while` (enquanto) é uma estrutura que repete um bloco de código enqua
 ##### Sintaxe do `while`
 ~~~python
 while condição:
-    # bloco de código que será repetido
-    ~~~
-    As instruções dentro do laço devem estar obrigatoriamente tabuladas (indentadas) para que o Python compreenda que pertencem à repetição.
+# bloco de código que será repetido
+~~~
+As instruções dentro do laço devem estar obrigatoriamente tabuladas (indentadas) para que o Python compreenda que pertencem à repetição.
 
-    ---
+---
 
-    ##### Exemplo Prático: Contador de 1 a 10
+##### Exemplo Prático: Contador de 1 a 10
 
-    Para entender a execução, podemos criar um contador que exibe números sequenciais. Para isso, utilizamos uma variável de controle que é atualizada a cada ciclo.
+Para entender a execução, podemos criar um contador que exibe números sequenciais. Para isso, utilizamos uma variável de controle que é atualizada a cada ciclo.
 
-    ##### Exemplo de Uso
-    ~~~python
-    contador = 1
-    while contador <= 10:
-        print(contador)
-            # Incrementando a variável para atualizar o valor
-                contador += 1
-                ~~~
+##### Exemplo de Uso
+~~~python
+contador = 1
+while contador <= 10:
+    print(contador)
+    # Incrementando a variável para atualizar o valor
+    contador += 1
+~~~
 
-                ##### Retorno esperado
-                ~~~python
-                1
-                2
-                3
-                4
-                5
-                6
-                7
-                8
-                9
-                10
-                ~~~
+##### Retorno esperado
+~~~python
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+~~~
 
-                > [!IMPORTANT]
-                > **Operador de Atribuição Composta:** A expressão `contador += 1` é uma forma simplificada em Python para escrever `contador = contador + 1`. Sem essa incrementação, a condição permaneceria verdadeira para sempre, gerando um **loop infinito** que travaria a execução do código.
+> [!IMPORTANT]
+> **Operador de Atribuição Composta:** A expressão `contador += 1` é uma forma simplificada em Python para escrever `contador = contador + 1`. Sem essa incrementação, a condição permaneceria verdadeira para sempre, gerando um **loop infinito** que travaria a execução do código.
 
-                ---
+---
 
-                ##### Automação do Registro de Notas
+##### Automação do Registro de Notas
 
-                Utilizando o `while`, podemos resolver o desafio de coletar médias para múltiplos estudantes sem duplicar linhas de código manualmente. Abaixo, o laço é configurado para rodar exatamente três vezes.
+Utilizando o `while`, podemos resolver o desafio de coletar médias para múltiplos estudantes sem duplicar linhas de código manualmente. Abaixo, o laço é configurado para rodar exatamente três vezes.
 
-                ##### Exemplo de Uso
-                ~~~python
-                # Inicializando o contador
-                contador = 1
+##### Exemplo de Uso
+~~~python
+# Inicializando o contador
+contador = 1
 
-                while contador <= 3:
-                    nota_1 = float(input('Digite a 1° nota: '))
-                        nota_2 = float(input('Digite a 2° nota: '))
+while contador <= 3:
+    nota_1 = float(input('Digite a 1° nota: '))
+    nota_2 = float(input('Digite a 2° nota: '))
 
-                            print(f'Média: {(nota_1 + nota_2) / 2}')
-                                
-                                    # Atualizando o contador para evitar loop infinito
-                                        contador += 1
-                                        ~~~
+    print(f'Média: {(nota_1 + nota_2) / 2}')
+        
+    # Atualizando o contador para evitar loop infinito
+    contador += 1
+~~~
 
-                                        ##### Retorno esperado (Simulação para 3 alunos)
-                                        ~~~python
-                                        Digite a 1° nota: 5
-                                        Digite a 2° nota: 6
-                                        Média: 5.5
-                                        Digite a 1° nota: 7
-                                        Digite a 2° nota: 9
-                                        Média: 8.0
-                                        Digite a 1° nota: 4
-                                        Digite a 2° nota: 4
-                                        Média: 4.0
-                                        ~~~
+##### Retorno esperado (Simulação para 3 alunos)
+~~~python
+Digite a 1° nota: 5
+Digite a 2° nota: 6
+Média: 5.5
+Digite a 1° nota: 7
+Digite a 2° nota: 9
+Média: 8.0
+Digite a 1° nota: 4
+Digite a 2° nota: 4
+Média: 4.0
+~~~
 
-                                        > [!TIP]
-                                        > **Fluxo de Dados:** Observe que o programa solicita as entradas sequencialmente. Assim que a média do primeiro aluno é exibida, o contador passa a valer 2, a condição `2 <= 3` é validada e o bloco reinicia automaticamente para o próximo estudante.
+> [!TIP]
+> **Fluxo de Dados:** Observe que o programa solicita as entradas sequencialmente. Assim que a média do primeiro aluno é exibida, o contador passa a valer 2, a condição `2 <= 3` é validada e o bloco reinicia automaticamente para o próximo estudante.
 
