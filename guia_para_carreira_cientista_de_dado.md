@@ -1391,3 +1391,116 @@ A tabela abaixo resume como cada comando redireciona a execução do programa de
 > [!TIP]
 > **Eficiência em Dados:** O uso do `break` é essencial em Ciência de Dados ao realizar buscas em grandes volumes de informação; assim que o dado procurado é encontrado, o laço é encerrado, economizando tempo de processamento computacional.
 
+## 02. Estruturas de Dados
+
+Além dos tipos básicos (int, float, bool e str), o Python possui variáveis capazes de armazenar e agrupar diversos itens simultaneamente, funcionando como conjuntos de elementos. Essas variáveis são classificadas como **dados estruturados**.
+
+---
+
+### 2.1 Listas
+
+As listas são um dos dados estruturados mais comuns e poderosos do Python. Elas armazenam diversos elementos em uma ordem específica e podem conter qualquer tipo de dado, inclusive misturando diferentes classes (como strings e números) em uma mesma estrutura.
+
+
+
+#### 2.1.1 Criação de Listas
+Uma lista é delimitada por **colchetes `[]`**, com seus itens separados por vírgulas.
+
+##### Exemplo de Uso (Cadastro de Estudante)
+~~~python
+# Criando uma lista com: Nome, Nota 1, Nota 2, Nota 3 e Situação
+lista = ['Fabricio Daniel', 9.5, 9.0, 8.0, True]
+
+# Visualizando a lista
+print(lista)
+~~~
+
+##### Retorno esperado
+~~~python
+['Fabricio Daniel', 9.5, 9.0, 8.0, True]
+~~~
+
+---
+
+#### 2.1.2 Organização e Índices
+
+Cada item em uma lista possui uma posição única chamada **índice**. O Python permite acessar esses elementos utilizando numeração positiva (do início ao fim) ou negativa (do fim para o início).
+
+| Direção | Primeiro Item | Segundo | Terceiro | Quarto | Último |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Positiva** | `[0]` | `[1]` | `[2]` | `[3]` | `[4]` |
+| **Elemento** | 'Fabricio Daniel' | 9.5 | 9.0 | 8.0 | True |
+| **Negativa** | `[-5]` | `[-4]` | `[-3]` | `[-2]` | `[-1]` |
+
+
+
+---
+
+#### 2.1.3 Manipulação de Dados na Lista
+
+Podemos coletar, atualizar ou realizar cálculos utilizando os índices dos elementos.
+
+**1. Acessando Elementos**
+~~~python
+# Coletando o nome (índice 0) e a situação (índice -1)
+print(lista[0])
+print(lista[-1])
+~~~
+
+##### Retorno esperado
+~~~python
+Fabricio Daniel
+True
+~~~
+
+**2. Atualizando Valores**
+As listas são mutáveis, permitindo a substituição de valores através de uma nova atribuição ao índice desejado.
+
+~~~python
+# Atualizando a terceira nota (índice 3) de 8.0 para 10.0
+lista[3] = 10.0
+print(lista)
+~~~
+
+##### Retorno esperado
+~~~python
+['Fabricio Daniel', 9.5, 9.0, 10.0, True]
+~~~
+
+**3. Cálculos Dinâmicos**
+~~~python
+# Calculando a média utilizando os índices das notas
+media = (lista[1] + lista[2] + lista[3]) / 3
+print(media)
+~~~
+
+##### Retorno esperado
+~~~python
+9.5
+~~~
+
+---
+
+#### 2.1.4 Leitura Dinâmica com `for`
+
+Para listas extensas, utilizamos o laço `for` para percorrer (iterar) cada item de forma automática.
+
+##### Exemplo de Uso
+~~~python
+# A variável 'elemento' assume o valor de cada item da lista em sequência
+for elemento in lista:
+    print(elemento)
+~~~
+
+##### Retorno esperado
+~~~python
+Fabricio Daniel
+9.5
+9.0
+10.0
+True
+~~~
+
+> [!TIP]
+> **Data Science Insight:** As listas são fundamentais para organizar séries temporais ou conjuntos de variáveis independentes antes de serem processadas por modelos matemáticos. No próximo vídeo, exploraremos métodos avançados para manipulação de listas.
+
