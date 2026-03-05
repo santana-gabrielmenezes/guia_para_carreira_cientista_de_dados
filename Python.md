@@ -1689,3 +1689,93 @@ print(lista)
 
 > [!TIP]
 > **Boas Práticas:** Utilize o `append()` para inclusões simples e o `extend()` para mesclar coleções de dados. Para remoções baseadas na posição (índice) em vez do valor, pesquise pelo método `pop()`.
+
+### 2.4 Métodos Adicionais de Manipulação de Listas
+
+Além dos métodos básicos de adição e remoção, o Python oferece ferramentas para controlar com precisão a posição dos elementos, localizar índices e organizar a ordem dos dados dentro de uma lista. Para os exemplos abaixo, utilizaremos uma lista de raças de cães:
+
+~~~python
+raca_caes = ['Labrador Retriever', 'Bulldog Francês', 'Pastor Alemão', 'Poodle']
+~~~
+
+---
+
+#### 2.4.1 Inserção em Posições Específicas: `insert()`
+
+O método `insert()` permite inserir um elemento numa posição exata da lista, deslocando os itens existentes para a direita. A sintaxe é `lista.insert(indice, elemento)`.
+
+
+
+##### Exemplo de Uso
+~~~python
+# Inserindo 'Golden Retriever' na posição 1 (segundo item)
+raca_caes.insert(1, 'Golden Retriever')
+print(raca_caes)
+~~~
+
+##### Retorno esperado
+~~~python
+['Labrador Retriever', 'Golden Retriever', 'Bulldog Francês', 'Pastor Alemão', 'Poodle']
+~~~
+
+> [!NOTE]
+> **Curiosidade:** O comando `lista.insert(len(lista), elemento)` produz o mesmo resultado que o método `append()`, adicionando o item ao final da lista.
+
+---
+
+#### 2.4.2 Remoção por Índice: `pop()`
+
+O método `pop()` remove o elemento de uma posição específica e retorna esse valor como saída. É ideal quando precisamos de processar um item e retirá-lo da lista simultaneamente.
+
+##### Exemplo de Uso
+~~~python
+# Removendo o elemento no índice 1 ('Golden Retriever')
+removido = raca_caes.pop(1)
+print(removido)
+~~~
+
+##### Retorno esperado
+~~~python
+'Golden Retriever'
+~~~
+
+---
+
+#### 2.4.3 Localização de Elementos: `index()`
+
+O método `index()` é utilizado para descobrir a posição (índice) de um elemento específico dentro da lista. Basta passar o valor procurado entre parênteses.
+
+##### Exemplo de Uso
+~~~python
+# Identificando o índice da raça 'Pastor Alemão'
+indice = raca_caes.index('Pastor Alemão')
+print(indice)
+~~~
+
+##### Retorno esperado
+~~~python
+2
+~~~
+
+---
+
+#### 2.4.4 Ordenação de Dados: `sort()`
+
+O método `sort()` organiza os elementos da lista em ordem crescente. No caso de strings, a organização segue a sequência alfabética.
+
+
+
+##### Exemplo de Uso
+~~~python
+# Ordenando a lista alfabeticamente
+raca_caes.sort()
+print(raca_caes)
+~~~
+
+##### Retorno esperado
+~~~python
+['Bulldog Francês', 'Labrador Retriever', 'Pastor Alemão', 'Poodle']
+~~~
+
+> [!TIP]
+> **Documentação:** Para explorar opções avançadas, como a ordenação decrescente ou critérios personalizados, consulte a [documentação oficial do Python](https://docs.python.org/3/tutorial/datastructures.html).
