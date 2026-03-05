@@ -1863,3 +1863,83 @@ print(cadastro)
 > [!TIP]
 > **Identidade das Chaves:** Em Data Science, é uma boa prática manter os nomes das chaves únicos dentro de um dicionário para evitar que um valor sobrescreva o outro acidentalmente.
 
+### 2.6 Métodos de Dicionários
+
+Além da facilidade de categorização por pares de chave-valor, os dicionários disponibilizam diversos métodos para manipular dados e realizar pesquisas internas de forma eficiente. Estes métodos seguem a sintaxe padrão: `objeto.metodo(argumentos)`.
+
+
+
+---
+
+#### 2.6.1 Remoção com `pop()`
+
+O método `pop()` remove um item específico do dicionário e retorna o seu valor como saída da execução. É a ferramenta ideal para corrigir incoerências ou retirar informações que não são mais necessárias no conjunto de dados.
+
+##### Exemplo de Uso
+~~~python
+# Removendo a chave 'turma' do dicionário cadastro
+valor_removido = cadastro.pop('turma')
+
+print(f"Valor excluído: {valor_removido}")
+print(cadastro)
+~~~
+
+##### Retorno esperado
+~~~python
+Valor excluído: 2G
+{'matricula': 2000168933, 'dia_cadastro': 25, 'mes_cadastro': 10, 'modalidade': 'EAD'}
+~~~
+
+---
+
+#### 2.6.2 Métodos de Consulta
+
+Existem três métodos principais que permitem visualizar os elementos de um dicionário de diferentes perspectivas: chaves, valores ou ambos.
+
+| Método | Descrição | Retorno |
+| :--- | :--- | :--- |
+| **`items()`** | Retorna todos os pares chave-valor do dicionário. | Uma lista de tuplas (pares). |
+| **`keys()`** | Retorna apenas as chaves (categorias) do dicionário. | Uma lista contendo os nomes das chaves. |
+| **`values()`** | Retorna apenas os valores associados às chaves. | Uma lista contendo os dados armazenados. |
+
+---
+
+#### 2.6.3 Leitura Dinâmica com `for`
+
+Como os dicionários são estruturas de dados iteráveis, podemos combinar os métodos de consulta com o laço `for` para realizar leituras automáticas e organizadas.
+
+
+
+**1. Iterando pelas Chaves (`keys`)**
+~~~python
+for chaves in cadastro.keys():
+    print(cadastro[chaves])
+~~~
+
+**2. Iterando pelos Valores (`values`)**
+~~~python
+for valores in cadastro.values():
+    print(valores)
+~~~
+
+**3. Iterando por Pares (`items`)**
+Para utilizar o método `items()`, especificamos dois elementos simultâneos no `for` (chave e valor), permitindo uma visualização completa e associada de cada registro.
+
+##### Exemplo de Uso
+~~~python
+for chaves, valores in cadastro.items():
+    print(f"Chave: {chaves} | Valor: {valores}")
+~~~
+
+##### Retorno esperado
+~~~python
+Chave: matricula | Valor: 2000168933
+Chave: dia_cadastro | Valor: 25
+Chave: mes_cadastro | Valor: 10
+Chave: modalidade | Valor: EAD
+~~~
+
+> [!TIP]
+> **Exploração de Dados:** Estes métodos são fundamentais em Ciência de Dados para descobrir a estrutura de um dicionário (quais categorias ele possui) antes de iniciar o processamento pesado das informações.
+
+---
