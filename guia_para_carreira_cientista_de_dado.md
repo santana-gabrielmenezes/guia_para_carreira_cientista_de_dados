@@ -1504,3 +1504,85 @@ True
 > [!TIP]
 > **Data Science Insight:** As listas são fundamentais para organizar séries temporais ou conjuntos de variáveis independentes antes de serem processadas por modelos matemáticos. No próximo vídeo, exploraremos métodos avançados para manipulação de listas.
 
+### 2.2 Strings
+
+Embora as strings já tenham sido introduzidas como tipos básicos, elas funcionam como sequências ordenadas de caracteres (letras, números, espaços e símbolos). Apesar de compartilharem semelhanças com as listas, como a indexação, elas possuem comportamentos fundamentais distintos.
+
+
+
+---
+
+#### 2.2.1 Indexação e Imutabilidade
+
+Cada caractere em uma string ocupa um índice que inicia em **0** e vai até a quantidade de caracteres menos 1. Assim como nas listas, é possível utilizar índices negativos para acessar elementos a partir do final.
+
+No entanto, uma string é **imutável**: ao contrário das listas, não é possível alterar um caractere individual através de uma atribuição direta (`string[0] = 'a'`), o que resultaria em um erro de compilação.
+
+##### Exemplo de Uso (Acesso via Índice)
+~~~python
+linguagem = 'Python'
+
+# Acessando caracteres específicos
+print(linguagem[0], linguagem[1], linguagem[2], linguagem[-3], linguagem[-2], linguagem[-1])
+~~~
+
+##### Retorno esperado
+~~~python
+P y t h o n
+~~~
+
+---
+
+#### 2.2.2 Transformando Strings em Listas: Método `split()`
+
+O método `split()` separa uma string em uma lista de substrings baseando-se em um delimitador especificado. Se nenhum delimitador for definido, o Python utiliza os espaços em branco como critério de separação.
+
+
+
+##### Exemplo de Uso
+~~~python
+duvida = 'Quem veio antes? O ovo? Ou foi a serpente?'
+
+# Separando pelo caractere '?'
+lista_perguntas = duvida.split('?')
+print(lista_perguntas)
+
+# Separando por espaços (padrão)
+lista_palavras = duvida.split()
+print(lista_palavras)
+~~~
+
+##### Retorno esperado
+~~~python
+['Quem veio antes', ' O ovo', ' Ou foi a serpente', '']
+['Quem', 'veio', 'antes?', 'O', 'ovo?', 'Ou', 'foi', 'a', 'serpente?']
+~~~
+
+---
+
+#### 2.2.3 Transformando Listas em Strings: Método `join()`
+
+O método `join()` realiza o processo inverso: ele une os elementos de uma lista para formar uma única string, utilizando um caractere unificador definido previamente.
+
+##### Exemplo de Uso
+~~~python
+misturas = [
+    'Tintas: vermelho, azul e amarelo',
+    'Verde: mistura de azul e amarelo',
+    'Laranja: mistura de vermelho e amarelo',
+    'Roxo: mistura de vermelho e azul'
+]
+
+unificador = '. '
+string_final = unificador.join(misturas)
+print(string_final)
+~~~
+
+##### Retorno esperado
+~~~python
+Tintas: vermelho, azul e amarelo. Verde: mistura de azul e amarelo. Laranja: mistura de vermelho e amarelo. Roxo: mistura de vermelho e azul
+~~~
+
+> [!IMPORTANT]
+> **Diferença Conceitual:** Uma **String** é representada por uma única variável contendo uma sequência de caracteres. Já uma **Estrutura de Dados** (como a Lista) é uma coleção que pode armazenar múltiplos itens de tipos variados em uma única variável.
+
