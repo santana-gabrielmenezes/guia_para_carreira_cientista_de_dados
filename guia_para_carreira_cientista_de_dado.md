@@ -1249,82 +1249,82 @@ A estrutura básica do `for` define uma variável temporária que assume o valor
 ~~~python
 for elemento in conjunto:
     # bloco de código executado para cada elemento
-    ~~~
+~~~
 
-    * **`for`**: Traduzido como "para".
-    * **`elemento`**: Variável que recebe o valor do item atual da iteração.
-    * **`in`**: Operador que verifica a existência do elemento no conjunto.
-    * **Indentação**: Assim como no `while`, o bloco de código interno deve estar tabulado para ser lido corretamente.
+* **`for`**: Traduzido como "para".
+* **`elemento`**: Variável que recebe o valor do item atual da iteração.
+* **`in`**: Operador que verifica a existência do elemento no conjunto.
+* **Indentação**: Assim como no `while`, o bloco de código interno deve estar tabulado para ser lido corretamente.
 
-    ---
+---
 
-    ##### A Função `range()`
+##### A Função `range()`
 
-    Para criar contadores numéricos com o `for`, utilizamos a função `range()`, que gera uma sequência de números inteiros.
+Para criar contadores numéricos com o `for`, utilizamos a função `range()`, que gera uma sequência de números inteiros.
 
-    **Sintaxe:** `range(inicio, fim, passo)`
-    * **Início**: O valor onde a sequência começa.
-    * **Fim**: O limite da sequência (o valor definido é **exclusivo**, ou seja, a contagem para um número antes).
-    * **Passo**: O intervalo entre os números (o padrão é 1).
+**Sintaxe:** `range(inicio, fim, passo)`
+* **Início**: O valor onde a sequência começa.
+* **Fim**: O limite da sequência (o valor definido é **exclusivo**, ou seja, a contagem para um número antes).
+* **Passo**: O intervalo entre os números (o padrão é 1).
 
-    ---
+---
 
-    ##### Exemplo Prático: Contador de 1 a 10
+##### Exemplo Prático: Contador de 1 a 10
 
-    Utilizar o `for` com `range()` é mais produtivo do que o `while`, pois não exige a criação prévia da variável contadora nem a sua incrementação manual (`+= 1`), reduzindo o tamanho do código.
+Utilizar o `for` com `range()` é mais produtivo do que o `while`, pois não exige a criação prévia da variável contadora nem a sua incrementação manual (`+= 1`), reduzindo o tamanho do código.
 
-    ##### Exemplo de Uso
-    ~~~python
-    # Criando uma sequência de 1 a 10 (o fim deve ser 11 pois é exclusivo)
-    for contador in range(1, 11):
-        print(contador)
-        ~~~
+##### Exemplo de Uso
+~~~python
+# Criando uma sequência de 1 a 10 (o fim deve ser 11 pois é exclusivo)
+for contador in range(1, 11):
+    print(contador)
+~~~
 
-        ##### Retorno esperado
-        ~~~python
-        1
-        2
-        3
-        4
-        5
-        6
-        7
-        8
-        9
-        10
-        ~~~
+##### Retorno esperado
+~~~python
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+~~~
 
-        ---
+---
 
-        ##### Automação do Registro de Notas com `for`
+##### Automação do Registro de Notas com `for`
 
-        Podemos remodelar o sistema de cadastro de notas da instituição de ensino para processar os dados de três alunos de forma automatizada e concisa.
+Podemos remodelar o sistema de cadastro de notas da instituição de ensino para processar os dados de três alunos de forma automatizada e concisa.
 
-        ##### Exemplo de Uso
-        ~~~python
-        # O range(1, 4) executa o bloco para os valores 1, 2 e 3
-        for contador in range(1, 4):
-            nota_1 = float(input('Digite a 1° nota: '))
-                nota_2 = float(input('Digite a 2° nota: '))
+##### Exemplo de Uso
+~~~python
+# O range(1, 4) executa o bloco para os valores 1, 2 e 3
+for contador in range(1, 4):
+    nota_1 = float(input('Digite a 1° nota: '))
+    nota_2 = float(input('Digite a 2° nota: '))
 
-                    print(f'Média: {(nota_1 + nota_2) / 2}')
-                    ~~~
+    print(f'Média: {(nota_1 + nota_2) / 2}')
+~~~
 
-                    ##### Retorno esperado (Simulação para 3 alunos)
-                    ~~~python
-                    Digite a 1° nota: 4
-                    Digite a 2° nota: 5
-                    Média: 4.5
-                    Digite a 1° nota: 6
-                    Digite a 2° nota: 7
-                    Média: 6.5
-                    Digite a 1° nota: 5
-                    Digite a 2° nota: 6
-                    Média: 5.5
-                    ~~~
+##### Retorno esperado (Simulação para 3 alunos)
+~~~python
+Digite a 1° nota: 4
+Digite a 2° nota: 5
+Média: 4.5
+Digite a 1° nota: 6
+Digite a 2° nota: 7
+Média: 6.5
+Digite a 1° nota: 5
+Digite a 2° nota: 6
+Média: 5.5
+~~~
 
-                    > [!TIP]
-                    > **Iteração e Estruturas de Dados:** O laço `for` é a ferramenta ideal para trabalhar com conjuntos de elementos. Na próxima aula, veremos como utilizá-lo para percorrer **Estruturas de Dados**, o que permitirá análises ainda mais potentes em Ciência de Dados.
+> [!TIP]
+> **Iteração e Estruturas de Dados:** O laço `for` é a ferramenta ideal para trabalhar com conjuntos de elementos. Na próxima aula, veremos como utilizá-lo para percorrer **Estruturas de Dados**, o que permitirá análises ainda mais potentes em Ciência de Dados.
 
 ### 1.16.6 Comandos de Controle (`continue` e `break`)
 
@@ -1334,7 +1334,7 @@ Ao trabalharmos com laços de repetição (`for` e `while`), podemos controlar o
 
 ---
 
-#### 1.16.6.1 O Comando `continue`
+1. O Comando `continue`
 
 O comando `continue` interrompe apenas a iteração atual do laço e salta imediatamente para a próxima, retornando ao início da verificação do laço. Ele é útil para ignorar elementos específicos que não atendem a um critério sem parar o processamento dos demais.
 
@@ -1342,52 +1342,52 @@ O comando `continue` interrompe apenas a iteração atual do laço e salta imedi
 ~~~python
 # Contagem de 1 a 5, pulando o número 4
 for i in range(1, 6):
-    if i == 4:
-            continue
-                print(i)
-                ~~~
+if i == 4:
+continue
+print(i)
+~~~
 
-                ##### Retorno esperado
-                ~~~python
-                1
-                2
-                3
-                5
-                ~~~
+##### Retorno esperado
+~~~python
+1
+2
+3
+5
+~~~
 
-                ---
+---
 
-                #### 1.16.6.2 O Comando `break`
+2. O Comando `break`
 
-                Diferente do anterior, o comando `break` interrompe a execução do laço completamente, saindo do bloco de código de repetição e seguindo para a próxima instrução fora dele. É amplamente utilizado para encerrar buscas ou parar execuções quando uma condição crítica é atingida.
+Diferente do anterior, o comando `break` interrompe a execução do laço completamente, saindo do bloco de código de repetição e seguindo para a próxima instrução fora dele. É amplamente utilizado para encerrar buscas ou parar execuções quando uma condição crítica é atingida.
 
-                ##### Exemplo de Uso
-                ~~~python
-                # Contagem de 1 a 5, interrompendo ao chegar no 4
-                for i in range(1, 6):
-                    if i == 4:
-                            break
-                                print(i)
-                                ~~~
+##### Exemplo de Uso
+~~~python
+# Contagem de 1 a 5, interrompendo ao chegar no 4
+for i in range(1, 6):
+if i == 4:
+    break
+    print(i)
+~~~
 
-                                ##### Retorno esperado
-                                ~~~python
-                                1
-                                2
-                                3
-                                ~~~
+##### Retorno esperado
+~~~python
+1
+2
+3
+~~~
 
-                                ---
+---
 
-                                #### 1.16.6.3 Comparativo de Fluxo
+3. Comparativo de Fluxo
 
-                                A tabela abaixo resume como cada comando redireciona a execução do programa dentro de uma estrutura de repetição:
+A tabela abaixo resume como cada comando redireciona a execução do programa dentro de uma estrutura de repetição:
 
-                                | Comando | Ação no Fluxo | Destino da Execução |
-                                | :--- | :--- | :--- |
-                                | **`continue`** | Interrompe a iteração atual. | Retorna ao início do laço (próxima iteração). |
-                                | **`break`** | Interrompe o laço completamente. | Sai do bloco e vai para o código fora da estrutura. |
+| Comando | Ação no Fluxo | Destino da Execução |
+| :--- | :--- | :--- |
+| **`continue`** | Interrompe a iteração atual. | Retorna ao início do laço (próxima iteração). |
+| **`break`** | Interrompe o laço completamente. | Sai do bloco e vai para o código fora da estrutura. |
 
-                                > [!TIP]
-                                > **Eficiência em Dados:** O uso do `break` é essencial em Ciência de Dados ao realizar buscas em grandes volumes de informação; assim que o dado procurado é encontrado, o laço é encerrado, economizando tempo de processamento computacional.
-                            
+> [!TIP]
+> **Eficiência em Dados:** O uso do `break` é essencial em Ciência de Dados ao realizar buscas em grandes volumes de informação; assim que o dado procurado é encontrado, o laço é encerrado, economizando tempo de processamento computacional.
+
