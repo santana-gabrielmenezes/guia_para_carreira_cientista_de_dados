@@ -1779,3 +1779,87 @@ print(raca_caes)
 
 > [!TIP]
 > **Documentação:** Para explorar opções avançadas, como a ordenação decrescente ou critérios personalizados, consulte a [documentação oficial do Python](https://docs.python.org/3/tutorial/datastructures.html).
+
+### 2.5 Dicionários
+
+Diferente das listas, que organizam dados por índices numéricos sequenciais (0, 1, 2...), os dicionários permitem definir rótulos personalizados para acessar as informações. Essa estrutura é amplamente utilizada em **Data Science** pela sua capacidade de categorizar dados de forma clara e intuitiva.
+
+
+
+---
+
+#### 2.5.1 O Conceito de Chave-Valor
+
+Os dicionários funcionam através de pares de **Chave-Valor**. 
+* **Chave:** Atua como o índice de acesso (a etiqueta da gaveta).
+* **Valor:** É o conteúdo armazenado (o que está dentro da gaveta).
+
+> [!NOTE]
+> **Analogia:** Pense em um dicionário como uma cômoda. Cada gaveta tem um nome (Chave) que permite abri-la para encontrar o que você guardou lá dentro (Valor).
+
+---
+
+#### 2.5.2 Como criar um dicionário
+
+Um dicionário é delimitado por **chaves `{}`**. Cada par é definido pela chave, seguida de dois-pontos e seu respectivo valor. Os pares são separados entre si por vírgulas.
+
+##### Exemplo de Uso (Cadastro de Estudante)
+~~~python
+# Criando um dicionário para armazenar dados de matrícula
+cadastro = {
+    'matricula': 2000168933,
+    'dia_cadastro': 25,
+    'mes_cadastro': 10,
+    'turma': '2E'
+}
+
+print(cadastro)
+~~~
+
+##### Retorno esperado
+~~~python
+{'matricula': 2000168933, 'dia_cadastro': 25, 'mes_cadastro': 10, 'turma': '2E'}
+~~~
+
+---
+
+#### 2.5.3 Acessando e Atualizando Dados
+
+O acesso aos dados é feito especificando a chave entre colchetes logo após o nome do dicionário.
+
+
+
+**1. Acessando Valores**
+~~~python
+# Consultando a matrícula e a turma
+print(cadastro['matricula'])
+print(cadastro['turma'])
+~~~
+
+**2. Atualizando e Adicionando Valores**
+Dicionários são mutáveis. Para alterar um valor ou adicionar uma nova categoria, basta realizar uma nova atribuição à chave correspondente.
+
+~~~python
+# Atualizando a turma de '2E' para '2G'
+cadastro['turma'] = '2G'
+
+# Adicionando uma nova informação: Modalidade EAD
+cadastro['modalidade'] = 'EAD'
+
+print(cadastro)
+~~~
+
+##### Retorno esperado
+~~~python
+{
+    'matricula': 2000168933, 
+    'dia_cadastro': 25, 
+    'mes_cadastro': 10, 
+    'turma': '2G', 
+    'modalidade': 'EAD'
+}
+~~~
+
+> [!TIP]
+> **Identidade das Chaves:** Em Data Science, é uma boa prática manter os nomes das chaves únicos dentro de um dicionário para evitar que um valor sobrescreva o outro acidentalmente.
+
