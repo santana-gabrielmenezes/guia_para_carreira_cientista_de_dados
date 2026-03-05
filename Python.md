@@ -1391,6 +1391,74 @@ A tabela abaixo resume como cada comando redireciona a execução do programa de
 > [!TIP]
 > **Eficiência em Dados:** O uso do `break` é essencial em Ciência de Dados ao realizar buscas em grandes volumes de informação; assim que o dado procurado é encontrado, o laço é encerrado, economizando tempo de processamento computacional.
 
+### 1.17 Funções Built-in
+
+As funções **built-in** são ferramentas pré-definidas e disponíveis por padrão no Python, prontas para realizar tarefas comuns sem a necessidade de escrever código adicional ou importar bibliotecas externas. Elas são essenciais para agilizar conversões de tipos, cálculos matemáticos e manipulação de dados.
+
+Já utilizamos diversas delas ao longo do curso, como: `print()`, `input()`, `len()`, `int()`, `str()`, `float()`, `range()` e `chr()`. Abaixo, exploramos outras três funções extremamente úteis para o dia a dia.
+
+---
+
+#### 1.17.1 A Função `sum()`
+
+A função `sum()` é utilizada para somar todos os elementos de uma sequência ou estrutura de dados numérica (como uma lista).
+
+##### Exemplo de Uso
+~~~python
+# Somando os preços de uma lista de produtos
+precos = [100.0, 400.0, 200.0]
+total = sum(precos)
+print(total)
+~~~
+
+##### Retorno esperado
+~~~python
+700.0
+~~~
+
+---
+
+#### 1.17.2 A Função `help()`
+
+A função `help()` é o portal de acesso à documentação oficial do Python diretamente pelo console. Ela fornece detalhes em inglês sobre a funcionalidade, sintaxe e os parâmetros de qualquer objeto, método ou função.
+
+##### Exemplo de Uso
+~~~python
+# Acessando a documentação da função print
+help(print)
+~~~
+
+##### Retorno esperado (Resumo)
+~~~text
+Help on built-in function print in module builtins:
+print(value, ..., sep=' ', end='\n', ...)
+Prints the values to a stream...
+~~~
+
+---
+
+#### 1.17.3 A Função `dir()`
+
+A função `dir()` funciona como um "inspetor", exibindo uma lista completa de todos os atributos e métodos associados a um elemento ou tipo de dado. É fundamental para descobrir o que você pode fazer com uma variável sem precisar consultar fontes externas.
+
+
+
+##### Exemplo de Uso
+~~~python
+# Descobrindo o que podemos fazer com uma lista
+minha_lista = [1, 2, 3]
+print(dir(minha_lista))
+~~~
+
+##### Retorno esperado (Trecho)
+~~~python
+['__add__', ..., 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+~~~
+
+> [!TIP]
+> **Exploração Contínua:** Para se tornar um mestre em Python, utilize o `dir()` para ver o que existe e o `help()` para entender como usar. Para uma lista exaustiva de todas as funções nativas, consulte a [documentação oficial do Python](https://docs.python.org/3/library/functions.html).
+
+
 ## 02. Estruturas de Dados
 
 Além dos tipos básicos (int, float, bool e str), o Python possui variáveis capazes de armazenar e agrupar diversos itens simultaneamente, funcionando como conjuntos de elementos. Essas variáveis são classificadas como **dados estruturados**.
@@ -1943,3 +2011,64 @@ Chave: modalidade | Valor: EAD
 > **Exploração de Dados:** Estes métodos são fundamentais em Ciência de Dados para descobrir a estrutura de um dicionário (quais categorias ele possui) antes de iniciar o processamento pesado das informações.
 
 ---
+
+### 2.7 Listas em Dicionários
+
+No Python, é possível associar diferentes estruturas de dados entre si, como armazenar **listas dentro de dicionários**. Nesta configuração, as listas ocupam a posição de **valores**, permitindo que uma única chave agrupe múltiplos elementos relacionados.
+
+
+
+---
+
+#### 2.7.1 Estrutura e Utilidade
+
+Essa técnica é extremamente útil para organizar conjuntos de dados que possuem categorias fixas, mas múltiplos registros. Imagine uma loja que precisa catalogar seus produtos e respectivos preços de forma associada:
+
+##### Exemplo de Uso (Criação)
+~~~python
+# Dicionário onde cada chave armazena uma lista de informações
+loja = {
+    'nomes': ['televisão', 'celular', 'notebook', 'geladeira', 'fogão'],
+        'precos': [2000, 1500, 3500, 4000, 1500]
+        }
+        ~~~
+
+        ---
+
+        #### 2.7.2 Acesso com Laços Aninhados
+
+        Para extrair e visualizar os dados contidos em estruturas aninhadas, utilizamos o agrupamento de laços `for`. 
+
+        1.  **Laço Externo:** Percorre os itens do dicionário (chave e a lista correspondente).
+        2.  **Laço Interno:** Itera sobre cada elemento individual dentro da lista que foi capturada pelo laço externo.
+
+        ##### Exemplo de Uso (Iteração)
+        ~~~python
+        for chave, elementos in loja.items():
+            print(f'Chave: {chave}\nElementos:')
+                # Segundo laço percorre a lista associada à chave atual
+                    for dado in elementos:
+                            print(dado)
+                            ~~~
+
+                            ##### Retorno esperado
+                            ~~~python
+                            Chave: nomes
+                            Elementos:
+                            televisão
+                            celular
+                            ...
+                            Chave: precos
+                            Elementos:
+                            2000
+                            1500
+                            ...
+                            ~~~
+
+
+
+                            > [!TIP]
+                            > **Flexibilidade:** Uma vez acessada a chave do dicionário, você pode realizar qualquer operação padrão de listas (como `append()`, `remove()` ou `len()`) diretamente na lista associada àquela chave. Por exemplo: `loja['nomes'].append('micro-ondas')`.
+
+                            ---
+
