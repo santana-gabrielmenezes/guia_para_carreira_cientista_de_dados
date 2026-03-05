@@ -1586,3 +1586,106 @@ Tintas: vermelho, azul e amarelo. Verde: mistura de azul e amarelo. Laranja: mis
 > [!IMPORTANT]
 > **Diferença Conceitual:** Uma **String** é representada por uma única variável contendo uma sequência de caracteres. Já uma **Estrutura de Dados** (como a Lista) é uma coleção que pode armazenar múltiplos itens de tipos variados em uma única variável.
 
+### 2.3 Manipulação de Listas
+
+As listas são ferramentas essenciais em Python pela sua capacidade de armazenar elementos de forma organizada e permitir o acesso rápido aos dados. Elas oferecem diversos métodos e funções nativas para manipular informações, como adicionar, remover e particionar dados conforme a necessidade do projeto de Ciência de Dados.
+
+
+
+---
+
+#### 2.3.1 Identificando a Quantidade de Elementos: `len()`
+
+Para processar grandes volumes de informações sem a necessidade de contagem manual, utilizamos a função `len()`, que retorna o número total de itens presentes em um objeto iterável, como uma lista.
+
+##### Exemplo de Uso
+~~~python
+# Utilizando a lista de cadastro: ['Fabricio Daniel', 9.5, 9.0, 10.0, True]
+quantidade = len(lista)
+print(quantidade)
+~~~
+
+##### Retorno esperado
+~~~python
+5
+~~~
+
+---
+
+#### 2.3.2 Partição de Listas (Slicing)
+
+A partição permite isolar fatias específicas de um conjunto de dados, o que é fundamental para dividir bancos de dados em partes menores. A sintaxe básica é `lista[inicio:fim]`, onde o índice de **início** é incluído e o índice de **fim** é o primeiro elemento a ser excluído da seleção.
+
+| Sintaxe | Resultado |
+| :--- | :--- |
+| **`lista[1:4]`** | Seleciona do índice 1 até o 3 (as três notas). |
+| **`lista[:3]`** | Seleciona do início até o índice 2. |
+| **`lista[3:]`** | Seleciona do índice 3 até o final da lista. |
+| **`lista[:]`** | Coleta todos os dados, do primeiro ao último. |
+
+[Image explaining Python list slicing syntax with start and end parameters]
+
+##### Exemplo de Uso
+~~~python
+# Extraindo apenas as três notas do estudante
+notas_estudante = lista[1:4]
+print(notas_estudante)
+~~~
+
+##### Retorno esperado
+~~~python
+[9.5, 9.0, 10.0]
+~~~
+
+---
+
+#### 2.3.3 Adição de Elementos: `append()` vs `extend()`
+
+Existem dois métodos principais para inserir novos dados ao final de uma lista, cada um com um comportamento específico de estruturação.
+
+**1. Método `append()`**
+Adiciona um **único elemento** ao final da lista. Se você passar uma lista para o `append()`, ela será inserida como um subelemento único (lista aninhada).
+
+##### Exemplo de Uso
+~~~python
+# Adicionando a média (9.5) ao final da lista
+lista.append(9.5)
+print(lista)
+~~~
+
+**2. Método `extend()`**
+Adiciona vários elementos de uma vez ao final da lista, desde que estejam contidos em um iterável. Diferente do `append()`, ele "desmembra" a nova lista e adiciona cada item como um elemento separado.
+
+##### Exemplo de Uso
+~~~python
+# Adicionando três novas notas de uma vez
+lista.extend([10.0, 8.0, 9.0])
+print(lista)
+~~~
+
+##### Retorno esperado (Comparativo)
+~~~python
+# Com append(): [..., True, 9.5, [10.0, 8.0, 9.0]] -> Lista dentro de lista
+# Com extend(): [..., True, 9.5, 10.0, 8.0, 9.0] -> Elementos individuais
+~~~
+
+---
+
+#### 2.3.4 Remoção de Elementos: `remove()`
+
+O método `remove()` permite excluir um item específico da lista informando o seu valor. Em Ciência de Dados, este método é útil para limpar informações indesejadas ou corrigir erros de inserção.
+
+##### Exemplo de Uso
+~~~python
+# Removendo um elemento específico (ex: uma lista inserida por erro)
+lista.remove([10.0, 8.0, 9.0])
+print(lista)
+~~~
+
+##### Retorno esperado
+~~~python
+['Fabricio Daniel', 9.5, 9.0, 10.0, True, 9.5, 10.0, 8.0, 9.0]
+~~~
+
+> [!TIP]
+> **Boas Práticas:** Utilize o `append()` para inclusões simples e o `extend()` para mesclar coleções de dados. Para remoções baseadas na posição (índice) em vez do valor, pesquise pelo método `pop()`.
