@@ -1609,6 +1609,57 @@ help(choice)
 > [!TIP]
 > **Dica de Performance:** Em projetos de Ciência de Dados, prefira importar apenas as funções específicas que irá utilizar para manter o ambiente de execução mais leve e organizado.
 
+### 1.18.7 Estratégias Avançadas de Importação
+
+A forma como trazemos ferramentas para o nosso projeto impacta diretamente a organização do código e a gestão da memória. Além dos modelos básicos, o Python oferece flexibilidade para importar múltiplos recursos simultaneamente ou até mesmo um pacote inteiro de forma simplificada.
+
+
+
+---
+
+1. Importação de Múltiplos Métodos
+Quando o projeto exige diversas ferramentas de uma única biblioteca, podemos listá-las separadamente por vírgulas em uma única instrução `from ... import`. Isso evita a repetição de linhas de código e mantém o cabeçalho do script organizado.
+
+**Exemplo Prático (Geração de Amostras):**
+~~~python
+# Importando dois métodos específicos da biblioteca random
+from random import randrange, sample
+
+lista = []
+# Criando uma lista de 20 números aleatórios (0 a 99)
+for i in range(0, 20):
+    lista.append(randrange(100))
+    # Extraindo uma amostra de 5 valores da lista gerada
+    resultado = sample(lista, 5)
+    print(resultado)
+~~~
+
+---
+
+2. Importação Total com Wildcard (`*`)
+Utilizar o asterisco (`*`) instrui o Python a importar **todos** os métodos de uma biblioteca. A principal diferença desta modalidade é que as funções podem ser chamadas diretamente pelo nome, sem a necessidade de prefixar o nome da biblioteca.
+
+**Comparativo de Chamada (Biblioteca Math):**
+
+| Tipo de Importação | Comando de Exemplo | Diferença na Chamada |
+| :--- | :--- | :--- |
+| `import math` | `math.sqrt(25)` | Exige o prefixo `math.`. |
+| `from math import *` | `sqrt(25)` | A função é chamada diretamente. |
+
+---
+
+3. Riscos e Boas Práticas
+Embora a importação total pareça mais rápida para escrever, ela exige cuidados especiais para evitar erros silenciosos no projeto:
+
+* **Conflitos de Nomes (Shadowing):** Se você declarar uma variável ou função com o mesmo nome de um método importado (ex: criar sua própria função `sqrt`), o Python causará um choque de nomes, sobrescrevendo a lógica anterior.
+* **Falta de Rastreabilidade:** Ao usar `import *`, não fica explícito para outros desenvolvedores de onde cada função foi extraída, o que dificulta a manutenção e a depuração do código.
+* **Clareza do Código:** Prefira sempre importar apenas o que será utilizado para manter o código leve e transparente.
+
+
+
+> [!IMPORTANT]
+> **Dica de Data Science:** Manter o controle sobre a origem das funções é vital em análise de dados. Por isso, a comunidade prefere importações específicas ou o uso de aliases (como `import pandas as pd`), garantindo que todos saibam exatamente qual biblioteca está processando a informação.
+
 
 ## 02. Estruturas de Dados
 
