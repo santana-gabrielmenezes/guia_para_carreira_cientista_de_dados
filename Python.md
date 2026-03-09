@@ -1561,6 +1561,54 @@ Quando executamos um comando `!pip install`, o PIP se conecta ao PyPI para busca
 > [!TIP]
 > **Busca de Soluções:** Você pode pesquisar diretamente no site do PyPI para encontrar pacotes que atendam a necessidades específicas do seu time de Ciência de Dados, verificando a documentação e a popularidade de cada ferramenta antes da instalação.
 
+### 1.18.6 Utilização e Importação de Bibliotecas
+
+Para utilizar as ferramentas contidas em uma biblioteca, existem três formas principais de importação, cada uma adequada a uma necessidade diferente de organização de código.
+
+
+
+---
+
+1. Importação Completa e com Alias
+A importação simples traz todo o pacote para o projeto. O uso do **Alias** (apelido) é uma prática comum para reduzir o tamanho do código em chamadas repetitivas utilizando a palavra-chave `as`.
+
+**Exemplo:**
+~~~python
+# Importando o módulo completo com um apelido curto
+import matplotlib.pyplot as plt 
+
+# Chamada do método através do alias
+plt.show()
+~~~
+
+---
+
+2. Importação de Funções Específicas
+Quando precisamos de apenas uma ferramenta exata de uma biblioteca, utilizamos a estrutura `from ... import ...`. Isso evita carregar componentes desnecessários para a memória.
+
+**Exemplo:**
+~~~python
+# "Da biblioteca X, importe o método Y"
+from random import choice 
+
+# Uso direto da função sem necessidade de prefixo
+estudante = choice(["João", "Maria", "José"])
+~~~
+
+---
+
+3. Consulta de Funcionalidades
+Para entender os requisitos de uma função ou método importado (como os parâmetros necessários), utilizamos a função built-in `help()`. Ela exibe a documentação interna do elemento diretamente no console.
+
+**Exemplo:**
+~~~python
+# Verificando como utilizar a função sorteada
+help(choice) 
+~~~
+
+> [!TIP]
+> **Dica de Performance:** Em projetos de Ciência de Dados, prefira importar apenas as funções específicas que irá utilizar para manter o ambiente de execução mais leve e organizado.
+
 
 ## 02. Estruturas de Dados
 
