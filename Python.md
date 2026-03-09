@@ -1530,6 +1530,37 @@ plt.show()
 > [!TIP]
 > **Acesso a Funções:** Ao utilizar o ponto após o apelido (`plt.`), o ambiente exibe todas as funções, módulos e classes disponíveis dentro daquela biblioteca para utilização.
 
+#### 1.18.5 PIP e PyPI
+
+O **PIP** e o **PyPI** são ferramentas complementares e fundamentais para a gestão de pacotes no ecossistema Python. Enquanto um atua na execução do gerenciamento, o outro serve como a base de dados global de bibliotecas.
+
+
+
+---
+
+1. Gerenciador de Bibliotecas (PIP)
+O **PIP** é o responsável por instalar, atualizar e remover pacotes de terceiros nos seus projetos. Através dele, é possível gerenciar quais ferramentas estão disponíveis na sua aplicação e garantir que as versões estejam corretas para o funcionamento do código.
+
+##### Exemplo de Uso (Listagem de Pacotes)
+Para visualizar todas as bibliotecas instaladas no seu ambiente do Google Colab e suas respectivas versões, utiliza-se o comando `list`:
+
+~~~python
+# Imprimindo todos os pacotes instalados no ambiente e suas versões 
+!pip list
+~~~
+
+---
+
+2. Repositório Central (PyPI)
+O **Python Package Index (PyPI)** é o maior repositório centralizado de pacotes Python, mantido pela **Python Software Foundation**. Ele armazena milhares de bibliotecas publicadas por desenvolvedores de todo o mundo. 
+
+Quando executamos um comando `!pip install`, o PIP se conecta ao PyPI para buscar, baixar e configurar os arquivos necessários na sua máquina virtual.
+
+
+
+> [!TIP]
+> **Busca de Soluções:** Você pode pesquisar diretamente no site do PyPI para encontrar pacotes que atendam a necessidades específicas do seu time de Ciência de Dados, verificando a documentação e a popularidade de cada ferramenta antes da instalação.
+
 
 ## 02. Estruturas de Dados
 
