@@ -1458,6 +1458,78 @@ print(dir(minha_lista))
 > [!TIP]
 > **Exploração Contínua:** Para se tornar um mestre em Python, utilize o `dir()` para ver o que existe e o `help()` para entender como usar. Para uma lista exaustiva de todas as funções nativas, consulte a [documentação oficial do Python](https://docs.python.org/3/library/functions.html).
 
+### 1.18 Bibliotecas no Python
+
+As bibliotecas são conjuntos de módulos e funções úteis que desempenham tarefas específicas de acordo com as necessidades do projeto, sem a necessidade de trazer todos os pacotes e dados simultaneamente. Elas funcionam como ferramentas prontas que otimizam o desenvolvimento em Ciência de Dados.
+
+
+
+---
+
+#### 1.18.1 Instalação e Gerenciamento com `pip`
+
+Para instalar ou atualizar bibliotecas, utiliza-se o **pip**, o gerenciador oficial do Python. Sua função é comparável à de um bibliotecário: enquanto o bibliotecário organiza o acervo de livros, o `pip` organiza as bibliotecas e pacotes da máquina.
+
+No ambiente **Google Colab**, como a instalação ocorre na camada do prompt de comando da máquina virtual, é necessário iniciar o código com o símbolo de **exclamação (!)**.
+
+##### Exemplo de Uso (Instalação Padrão)
+~~~python
+# A exclamação indica um comando para o prompt da máquina virtual
+!pip install matplotlib
+~~~
+
+---
+
+#### 1.18.2 Controle de Versões Específicas
+
+É possível instalar uma versão exata de uma biblioteca utilizando o operador `==`. Essa prática é fundamental para assegurar que o código funcione corretamente, evitando que atualizações futuras removam funções ou alterem parâmetros utilizados no projeto.
+
+##### Exemplo de Uso
+~~~python
+# Instalando a versão 3.6.2 do matplotlib
+!pip install matplotlib==3.6.2
+~~~
+
+> [!CAUTION]
+> **Reinicialização Necessária:** Após atualizar ou alterar a versão de um pacote já carregado, o Python exibirá um aviso (*WARNING*) informando que o ambiente de execução deve ser reiniciado (**Ambiente de execução > Reiniciar ambiente de execução**) para que as novas versões sejam aplicadas.
+
+---
+
+#### 1.18.3 Importação e Métodos Mágicos
+
+Após instalada, a biblioteca deve ser trazida para o projeto através do comando `import`. Para verificar informações extraordinárias sobre módulos ou objetos, como a versão ativa, utilizamos os **dunder methods** (métodos mágicos), identificados por dois underlines (`__`).
+
+##### Exemplo de Uso
+~~~python
+import matplotlib
+
+# Verificando a versão através de um dunder method
+print(matplotlib.__version__)
+~~~
+
+##### Retorno esperado
+~~~python
+'3.6.2'
+~~~
+
+---
+
+#### 1.18.4 Uso de Alias (Apelidos)
+
+O **Alias** é um apelido simplificado dado a uma biblioteca ou submódulo para reduzir a extensão do código e facilitar chamadas repetitivas. No dia a dia da Ciência de Dados, o submódulo `matplotlib.pyplot` é convencionalmente importado com o apelido `plt`.
+
+##### Exemplo de Uso
+~~~python
+# Importando com alias para reduzir o código
+import matplotlib.pyplot as plt
+
+# O método .show() exibe a imagem produzida na tela
+plt.show()
+~~~
+
+> [!TIP]
+> **Acesso a Funções:** Ao utilizar o ponto após o apelido (`plt.`), o ambiente exibe todas as funções, módulos e classes disponíveis dentro daquela biblioteca para utilização.
+
 
 ## 02. Estruturas de Dados
 
