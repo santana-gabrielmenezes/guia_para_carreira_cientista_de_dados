@@ -2029,27 +2029,27 @@ Essa técnica é extremamente útil para organizar conjuntos de dados que possue
 # Dicionário onde cada chave armazena uma lista de informações
 loja = {
     'nomes': ['televisão', 'celular', 'notebook', 'geladeira', 'fogão'],
-        'precos': [2000, 1500, 3500, 4000, 1500]
-        }
-        ~~~
+    'precos': [2000, 1500, 3500, 4000, 1500]
+    }
+~~~
 
-        ---
+---
 
-        #### 2.7.2 Acesso com Laços Aninhados
+#### 2.7.2 Acesso com Laços Aninhados
 
-        Para extrair e visualizar os dados contidos em estruturas aninhadas, utilizamos o agrupamento de laços `for`. 
+Para extrair e visualizar os dados contidos em estruturas aninhadas, utilizamos o agrupamento de laços `for`. 
 
-        1.  **Laço Externo:** Percorre os itens do dicionário (chave e a lista correspondente).
-        2.  **Laço Interno:** Itera sobre cada elemento individual dentro da lista que foi capturada pelo laço externo.
+1.  **Laço Externo:** Percorre os itens do dicionário (chave e a lista correspondente).
+2.  **Laço Interno:** Itera sobre cada elemento individual dentro da lista que foi capturada pelo laço externo.
 
-        ##### Exemplo de Uso (Iteração)
-        ~~~python
-        for chave, elementos in loja.items():
-            print(f'Chave: {chave}\nElementos:')
-                # Segundo laço percorre a lista associada à chave atual
-                    for dado in elementos:
-                            print(dado)
-                            ~~~
+##### Exemplo de Uso (Iteração)
+~~~python
+for chave, elementos in loja.items():
+    print(f'Chave: {chave}\nElementos:')
+    # Segundo laço percorre a lista associada à chave atual
+    for dado in elementos:
+        print(dado)
+~~~
 
                             ##### Retorno esperado
                             ~~~python
@@ -2065,10 +2065,7 @@ loja = {
                             ...
                             ~~~
 
-
-
-                            > [!TIP]
+> [!TIP]
                             > **Flexibilidade:** Uma vez acessada a chave do dicionário, você pode realizar qualquer operação padrão de listas (como `append()`, `remove()` ou `len()`) diretamente na lista associada àquela chave. Por exemplo: `loja['nomes'].append('micro-ondas')`.
-
                             ---
 
