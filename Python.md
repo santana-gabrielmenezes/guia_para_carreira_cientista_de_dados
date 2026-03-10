@@ -1802,6 +1802,45 @@ Um ponto crítico no aprendizado de funções é entender por que não conseguim
 
                             ---
 
+### 1.20.1 Escopo de Variáveis
+
+O escopo em Python define a região do código onde uma variável pode ser acessada. Ele é essencial para evitar conflitos e entender a visibilidade dos dados dentro de um programa.
+
+
+
+---
+
+1. Categorias de Escopo
+O escopo é dividido em dois níveis principais:
+* **Escopo Global:** Variáveis definidas fora de funções, acessíveis por qualquer parte do código em execução.
+* **Escopo Local:** Variáveis definidas dentro de uma função, acessíveis apenas dentro do bloco de instruções dessa mesma função.
+
+---
+
+2. O Problema do Escopo (NameError)
+O erro de escopo ocorre quando tentamos referenciar uma variável local fora da função onde ela foi criada. Como a variável "morre" ao final da execução da função, o Python gera um erro de nome (**NameError**) indicando que o objeto não foi definido.
+
+---
+
+3. Exemplo Prático
+Observe a diferença de visibilidade no código abaixo:
+
+~~~python
+x = 7 # Variável de escopo global
+
+def soma():
+    y = 9 # Variável de escopo local
+    print(x + y) # Funciona: acessa x (global) e y (local)
+
+soma() # Saída: 16
+
+# Erro: y não existe fora da função soma
+print(x + y) # Gera NameError: name 'y' is not defined
+~~~
+
+> [!IMPORTANT]
+> **Resolução:** Para utilizar um valor gerado dentro de uma função no escopo global, devemos transformar a variável em global ou, preferencialmente, utilizar a instrução de retorno, que veremos a seguir.
+
 
 ## 02. Estruturas de Dados
 
