@@ -1725,6 +1725,83 @@ Para entender os parâmetros de qualquer função built-in, podemos utilizar o c
 > [!TIP]
 > **Praticidade:** As built-in functions são otimizadas para operações comuns. Sempre que precisar realizar uma tarefa simples, como somar ou contar itens, verifique se já existe uma função nativa antes de construir sua própria lógica.
 
+### 1.20 Criando Funções Personalizadas
+
+Embora as funções nativas sejam poderosas, há situações em que elas não são suficientes para solucionar problemas específicos. Nestes casos, surge a necessidade de criarmos nossas próprias funções, que podem ser reutilizadas em qualquer parte do código após sua definição.
+
+
+
+---
+
+1. Funções sem Parâmetros
+Este é o formato mais simples de uma função. Ela executa um conjunto fixo de instruções sempre que é invocada.
+
+**Sintaxe:**
+~~~python
+def nome_da_funcao():
+    # instruções
+~~~
+
+* **`def`**: Palavra-chave obrigatória para iniciar a criação da função.
+* **Definição vs. Invocação**: Ao rodar a célula de criação (`def`), nada é exibido; o código só é executado quando chamamos a função pelo nome seguidos de parênteses.
+
+**Exemplo:**
+~~~python
+def media():
+    calculo = (10 + 9 + 8) / 3
+    print(calculo)
+
+# Chamando a função
+media() # Retorno: 9.0
+~~~
+
+---
+
+2. Funções com Parâmetros
+Para que uma função seja dinâmica e trabalhe com diferentes dados, utilizamos parâmetros. Eles são passados entre os parênteses na criação e funcionam como variáveis internas.
+
+**Parâmetros vs. Argumentos:**
+* **Parâmetros**: São os nomes definidos na criação da função (ex: `nota_1`, `nota_2`).
+* **Argumentos**: São os valores reais passados no momento da execução (ex: `3`, `6`, `9`).
+
+**Exemplo:**
+~~~python
+def media(nota_1, nota_2, nota_3):
+    calculo = (nota_1 + nota_2 + nota_3) / 3
+    print(calculo)
+
+# Executando com diferentes argumentos
+media(3, 6, 9) # Retorno: 6.0
+~~~
+
+---
+
+3. Situação 2: Médias a partir de Listas
+Em Ciência de Dados, é comum precisarmos de funções que aceitem estruturas de dados inteiras, como listas, permitindo que a quantidade de notas varie sem quebrar a lógica do cálculo.
+
+~~~python
+# Lista de notas do estudante
+notas_aluno = [8.5, 9.0, 6.0, 10.0]
+
+def calcular_media_lista(lista):
+    # Uso de funções built-in dentro de uma função personalizada
+    calculo = sum(lista) / len(lista)
+                                print(calculo)
+
+                            calcular_media_lista(notas_aluno) # Retorno: 8.375
+~~~
+---
+
+4. Escopo e o Limite do `print()`
+Um ponto crítico no aprendizado de funções é entender por que não conseguimos salvar o resultado de um `print()` em uma variável
+* **NoneType**: Se tentarmos fazer `resultado = media(notas)`, a variável `resultado` terá o tipo `NoneType` (nulo). O `print` apenas exibe o valor na tela, mas não o "entrega" para o sistema.
+* **Escopo de Função**: Variáveis criadas dentro de uma função (como `calculo`) só existem enquanto a função está rodando; elas "nascem e morrem" dentro dela, não sendo acessíveis pelo código externo.
+
+> [!IMPORTANT]
+> **Atenção:** Para que uma função possa devolver um valor que será utilizado em outros cálculos ou armazenado em variáveis, precisamos de uma instrução específica que substitua o `print()`, a qual veremos na sequência.
+
+                            ---
+
 
 ## 02. Estruturas de Dados
 
