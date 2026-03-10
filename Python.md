@@ -1660,6 +1660,71 @@ Embora a importação total pareça mais rápida para escrever, ela exige cuidad
 > [!IMPORTANT]
 > **Dica de Data Science:** Manter o controle sobre a origem das funções é vital em análise de dados. Por isso, a comunidade prefere importações específicas ou o uso de aliases (como `import pandas as pd`), garantindo que todos saibam exatamente qual biblioteca está processando a informação.
 
+### 1.19 Funções Built-in
+
+Funções são sequências de instruções que executam tarefas específicas e podem ser reutilizadas em diferentes partes do código. Elas recebem parâmetros de entrada (*inputs*) e podem retornar valores, sendo fundamentais para a automação de comportamentos reprodutíveis. 
+
+O Python oferece as **Built-in Functions** (funções embutidas), que são ferramentas nativas disponíveis por padrão e que podem ser invocadas a qualquer momento. Algumas que já utilizamos incluem `print()`, `type()` e `list()`.
+
+
+
+---
+
+1. Estudo de Caso: Situação 1
+A escola solicitou o cálculo da média de um estudante a partir de um dicionário de notas trimestrais, exigindo que o resultado final tenha apenas uma casa decimal.
+
+**Dados iniciais:**
+~~~python
+# Notas do(a) estudante
+notas = {'1º Trimestre': 8.5, '2° Trimestre': 9.5, '3º trimestre': 7}
+~~~
+
+Para resolver este problema sem a necessidade de criar laços manuais complexos, utilizamos as funções embutidas de cálculo e contagem.
+
+---
+
+2. A Função `sum()`
+A função `sum()` é utilizada para somar os valores de uma sequência ou estrutura de dados. Como o dicionário `notas` não é uma lista iterável por padrão para valores numéricos, utilizamos o método `.values()` para fornecer os dados corretos à função.
+
+~~~python
+# Usando a função embutida sum() para obter o total
+somatorio = sum(notas.values())
+print(somatorio) # Retorno: 25.0
+~~~
+
+---
+
+3. A Função `len()`
+Para identificar a quantidade de valores existentes e realizar a divisão da média, utilizamos a função `len()`. Diferente da anterior, esta função pode receber o dicionário `notas` diretamente como parâmetro para contar o número de chaves presentes.
+
+~~~python
+# Usando a função embutida len() para identificar a quantidade de notas
+qtd_notas = len(notas)
+print(qtd_notas) # Retorno: 3
+~~~
+
+---
+
+4. A Função `round()` e o Cálculo da Média
+A média é obtida pela divisão do `somatorio` pela `qtd_notas`. Para limitar o resultado a apenas uma casa decimal, como solicitado pela escola, aplicamos a função `round()`. Ela recebe dois parâmetros: o número a ser arredondado e a quantidade de dígitos desejada.
+
+~~~python
+# Calculando a média e arredondando para 1 casa decimal
+media = somatorio / qtd_notas
+media = round(media, 1)
+print(media) # Retorno: 8.3
+~~~
+
+---
+
+5. Consulta de Documentação: `help()`
+Para entender os parâmetros de qualquer função built-in, podemos utilizar o comando `help()` ou o caractere `?`:
+* **`help(round)`**: Exibe a documentação oficial abaixo da célula.
+* **`round?`**: Abre uma aba lateral de ajuda no Google Colab.
+
+> [!TIP]
+> **Praticidade:** As built-in functions são otimizadas para operações comuns. Sempre que precisar realizar uma tarefa simples, como somar ou contar itens, verifique se já existe uma função nativa antes de construir sua própria lógica.
+
 
 ## 02. Estruturas de Dados
 
