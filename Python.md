@@ -1800,13 +1800,11 @@ Um ponto crítico no aprendizado de funções é entender por que não conseguim
 > [!IMPORTANT]
 > **Atenção:** Para que uma função possa devolver um valor que será utilizado em outros cálculos ou armazenado em variáveis, precisamos de uma instrução específica que substitua o `print()`, a qual veremos na sequência.
 
-                            ---
+---
 
 ### 1.20.1 Escopo de Variáveis
 
 O escopo em Python define a região do código onde uma variável pode ser acessada. Ele é essencial para evitar conflitos e entender a visibilidade dos dados dentro de um programa.
-
-
 
 ---
 
@@ -1841,6 +1839,129 @@ print(x + y) # Gera NameError: name 'y' is not defined
 > [!IMPORTANT]
 > **Resolução:** Para utilizar um valor gerado dentro de uma função no escopo global, devemos transformar a variável em global ou, preferencialmente, utilizar a instrução de retorno, que veremos a seguir.
 
+### 1.20.2 Instrução `return`
+
+Para que o resultado de uma função não seja apenas exibido na tela, mas possa ser armazenado em uma variável e utilizado em outras partes do código, utilizamos a palavra-chave **`return`**. Ao contrário do `print()`, o `return` "entrega" o valor processado de volta para quem chamou a função.
+
+---
+
+1. Estrutura e Funcionamento
+A instrução `return` é inserida ao final do bloco de comandos da função. Após a sua execução, a função é encerrada imediatamente.
+
+**Sintaxe:**
+~~~python
+def nome_da_funcao(parametros):
+    # instruções
+    return resultado
+~~~
+
+**Exemplo Prático:**
+Ao definir a função com `return`, conseguimos salvar o cálculo da média em uma variável externa:
+~~~python
+notas = [8.5, 9.0, 6.0, 10.0]
+
+def calcular_media(lista):
+calculo = sum(lista) / len(lista)
+return calculo
+
+# Agora o valor 8.375 é "salvo" na variável resultado
+resultado = calcular_media(notas)
+~~~
+
+---
+
+2. Retornando Múltiplos Valores (Tuplas)
+Em situações mais complexas, como a necessidade de retornar a média e a situação do aluno simultaneamente, o Python permite retornar múltiplos valores. Isso é feito passando as variáveis separadas por vírgulas, o que gera automaticamente uma **tupla** (uma coleção de valores imutável).
+
+
+
+---
+
+3. Estudo de Caso: Situação 3 (Boletim Escolar)
+Neste desafio, a função deve calcular a média e definir se o estudante está "Aprovado(a)" (nota $\ge$ 6.0) ou "Reprovado(a)".
+
+~~~python
+def boletim(lista):
+media = sum(lista) / len(lista)
+                        
+if media >= 6:
+situacao = "Aprovado(a)"
+else:
+situacao = "Reprovado(a)"
+# Retornando os dois valores como uma tupla
+return (media, situacao)
+~~~
+
+---
+4. Desempacotamento de Valores
+Ao chamar uma função que retorna uma tupla, podemos realizar o **desempacotamento**, atribuindo cada valor retornado a uma variável diferente fora do escopo da função.
+
+**Exemplo de Execução:**
+~~~python
+# As variáveis recebem os valores na ordem em que foram retornados
+media_final, status = boletim([6.0, 7.0, 9.0, 5.0])
+
+print(f'O(a) estudante atingiu a média {media_final} e foi {status}.')
+~~~
+
+**Retorno esperado:**
+~~~text
+O(a) estudante atingiu a média 6.75 e foi Aprovado(a).
+~~~
+
+> [!IMPORTANT]
+> **Flexibilidade de Dados:** Uma tupla retornada pode conter diferentes tipos de dados simultaneamente, como um `float` (média) e uma `string` (situação), e seus elementos podem ser acessados individualmente através de índices, assim como nas listas.
+
+---
+
+### 1.20.3 Documentando Funções
+
+Documentar funções é essencial para tornar o código acessível e compreensível para outras pessoas que utilizarem o projeto. Existem três ferramentas principais para auxiliar nessa tarefa: o **Type Hint**, o **Default Value** e o **Docstring**.
+
+---
+
+1. Type Hint
+O **Type Hint** (dica de tipagem) é uma sintaxe utilizada para indicar o tipo de dado esperado para os parâmetros e para o retorno da função. Isso melhora a legibilidade e facilita a manutenção do código.
+
+**Exemplo:**
+~~~python
+# Indica que recebe uma lista (list) e retorna um decimal (float)
+def media(lista: list) -> float:
+calculo = sum(lista) / len(lista)
+return calculo
+~~~
+
+---
+
+2. Default Value (Valor Padrão)
+O **Default Value** define um valor automático para um argumento caso o usuário não passe nenhum dado durante a execução da função.
+
+**Exemplo:**
+~~~python
+# Caso 'lista' não seja informada, assume-se [0] por padrão
+def media(lista: list = [0]) -> float:
+    calculo = sum(lista) / len(lista)
+return calculo
+~~~
+
+---
+
+3. Docstring
+A **Docstring** é uma string literal, escrita entre aspas triplas, inserida logo após a definição da função para descrever seu propósito, parâmetros e retornos. Ela pode ser consultada a qualquer momento através da função `help()`.
+
+**Exemplo:**
+~~~python
+def media(lista: list = [0]) -> float:
+    '''
+    Função para calcular a média de notas de uma lista.
+    lista: list, default [0]
+    return = calculo: float
+    '''
+    calculo = sum(lista) / len(lista)
+    return calculo
+~~~
+> [!TIP]
+> **Consultando Dicas:** Ao passar o mouse sobre o nome de uma função bem documentada no Google Colab, o ambiente exibe automaticamente as dicas de tipagem e o texto da Docstring, facilitando o uso sem precisar abrir o código-fonte.
 
 ## 02. Estruturas de Dados
 
